@@ -13,7 +13,7 @@ public class Saveload : Isavedata
         {
             if (File.Exists(path))
             {
-                Debug.Log("already exits, delete and creat new one");
+                //Debug.Log("already exits, delete and creat new one");
                 File.Delete(path);
             }
             else
@@ -48,9 +48,9 @@ public class Saveload : Isavedata
         }
         catch (Exception e)
         {
-            Debug.LogError($"error {e.Message} {e.StackTrace}");
+            Globalcalls.couldnotloaddata = true;
+            //Debug.LogError($"error {e.Message} {e.StackTrace}");
             throw e;
         }
-        //das
     }
 }

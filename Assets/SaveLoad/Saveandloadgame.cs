@@ -29,7 +29,7 @@ public class Saveandloadgame : MonoBehaviour
         string savepath = "/Savadata.json";
         if (saveloadinterface.savedata(savepath, convertdata))
         {
-            Debug.Log("game saved" + savepath);
+            //Debug.Log("game saved" + savepath);
         }
         else
         {
@@ -51,9 +51,9 @@ public class Saveandloadgame : MonoBehaviour
         {
             convertdata = saveloadinterface.loaddata<Convertdata>(loadpath);
         }
-        catch (Exception e)
+        catch
         {
-            Debug.LogError($"error Could not load data {e.Message} {e.StackTrace}");
+            //Debug.LogError($"error Could not load data {e.Message} {e.StackTrace}");
         }
     }
 }

@@ -9,6 +9,7 @@ public class Menucontroller : MonoBehaviour
 
     [SerializeField] private GameObject menu;
     [SerializeField] private GameObject menuoverview;
+    [SerializeField] private GameObject newgameconfirm;
     private float normaltimescale;
     private float normalfixeddeltatime;
 
@@ -35,9 +36,14 @@ public class Menucontroller : MonoBehaviour
             Globalcalls.gameispaused = true;
             Time.timeScale = 0f;
             Time.fixedDeltaTime = 0f;
+            newgameconfirm.SetActive(false);
             menu.SetActive(true);
             menuoverview.SetActive(true);
             menusoundcontroller.playmenusound1();
+        }
+        else if(controlls.Menu.Openmenu.WasPerformedThisFrame() && newgameconfirm.activeSelf == true)
+        {
+            newgameconfirm.SetActive(false);
         }
         else if(controlls.Menu.Openmenu.WasPerformedThisFrame() && menuoverview.activeSelf == true && menu.activeSelf == true)     //menu.activeSelf == true weil menuoverview als aktiv gilt selbst wenn der parent disabled ist
         {

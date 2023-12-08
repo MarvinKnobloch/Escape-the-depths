@@ -9,6 +9,7 @@ public class Handlebutton : MonoBehaviour, IPointerEnterHandler, IPointerExitHan
     [SerializeField] private GameObject menucontroller;
     [SerializeField] private GameObject menuoverview;
     [SerializeField] private GameObject settingscontroller;
+    [SerializeField] private GameObject newgameconfirm;
     private Handlemenu handlemenu;
 
     private Color selectedcolor;
@@ -45,6 +46,10 @@ public class Handlebutton : MonoBehaviour, IPointerEnterHandler, IPointerExitHan
         settingscontroller.SetActive(true);
         menuoverview.SetActive(false);
         menusoundcontroller.playmenusound1();
+    }
+    public void opennewgameconfirm()
+    {
+        newgameconfirm.SetActive(true);
     }
     public void closegame()
     {

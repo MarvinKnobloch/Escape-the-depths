@@ -27,7 +27,7 @@ public class Playersounds : MonoBehaviour
 
     public void playfootstep1() => playsound(footstep1, 0.1f);
     public void playfootstep2() => playsound(footstep2, 0.1f);
-    public void playjump() => playsound(jump, 0.7f);
+    public void playjump() => playsound(jump, 0.6f);
     public void playdash() => playsound(dash, 0.3f);
     public void playgravityswitch() => playsound(gravityswitch, 0.3f);
     public void playwhip() => playsound(whip, 0.25f);

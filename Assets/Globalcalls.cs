@@ -19,7 +19,6 @@ public static class Globalcalls
     public static bool candash = true;
 
     public static int zonemusic;
-    //hallo
 
-
+    public static bool couldnotloaddata;
 }
