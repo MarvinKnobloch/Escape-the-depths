@@ -1,0 +1,853 @@
+fileFormatVersion: 2
+guid: 0c40823d2cb35fe479f530ae2b43b619
+TextureImporter:
+  internalIDToNameTable:
+  - first:
+      213: 3837294349612210039
+    second: Cavesprites_0
+  - first:
+      213: -8111304330916523945
+    second: Cavesprites_1
+  - first:
+      213: -1748767153609205477
+    second: Cavesprites_2
+  - first:
+      213: 4667605814407762555
+    second: Cavesprites_3
+  - first:
+      213: -3708839052143588859
+    second: Cavesprites_4
+  - first:
+      213: -1375590697160954759
+    second: Cavesprites_5
+  - first:
+      213: 5317659171703340459
+    second: Cavesprites_6
+  - first:
+      213: -1658529096579642886
+    second: Cavesprites_7
+  - first:
+      213: -7976571647301062872
+    second: Cavesprites_8
+  - first:
+      213: -4951246871064722387
+    second: Cavesprites_9
+  - first:
+      213: -7261270882678535496
+    second: Cavesprites_10
+  - first:
+      213: 6036543745165892835
+    second: Cavesprites_11
+  - first:
+      213: 796759081507582311
+    second: Cavesprites_12
+  - first:
+      213: -6380421649106619419
+    second: Cavesprites_13
+  - first:
+      213: 1726440805261960743
+    second: Cavesprites_14
+  - first:
+      213: 7402601362690811419
+    second: Cavesprites_15
+  - first:
+      213: 5419905358974550585
+    second: Cavesprites_16
+  - first:
+      213: 8493266513776716032
+    second: Cavesprites_17
+  - first:
+      213: 2586239510075595530
+    second: Cavesprites_18
+  - first:
+      213: 6959504676256366341
+    second: Cavesprites_19
+  - first:
+      213: 1880524903938051724
+    second: Cavesprites_20
+  - first:
+      213: 2539212421751132237
+    second: Cavesprites_21
+  - first:
+      213: 8154706594883154442
+    second: Cavesprites_22
+  - first:
+      213: -8043014230265073805
+    second: Cavesprites_23
+  - first:
+      213: -8936137957952696637
+    second: Cavesprites_24
+  - first:
+      213: 8312612639003674684
+    second: Cavesprites_25
+  - first:
+      213: 6772006630449372683
+    second: Cavesprites_26
+  - first:
+      213: 7475498665031239889
+    second: Cavesprites_27
+  - first:
+      213: -6881793301736513958
+    second: Cavesprites_28
+  - first:
+      213: -9149003560811116087
+    second: Cavesprites_29
+  - first:
+      213: -8475555314042814246
+    second: Cavesprites_30
+  externalObjects: {}
+  serializedVersion: 12
+  mipmaps:
+    mipMapMode: 0
+    enableMipMap: 0
+    sRGBTexture: 1
+    linearTexture: 0
+    fadeOut: 0
+    borderMipMap: 0
+    mipMapsPreserveCoverage: 0
+    alphaTestReferenceValue: 0.5
+    mipMapFadeDistanceStart: 1
+    mipMapFadeDistanceEnd: 3
+  bumpmap:
+    convertToNormalMap: 0
+    externalNormalMap: 0
+    heightScale: 0.25
+    normalMapFilter: 0
+  isReadable: 0
+  streamingMipmaps: 0
+  streamingMipmapsPriority: 0
+  vTOnly: 0
+  grayScaleToAlpha: 0
+  generateCubemap: 6
+  cubemapConvolution: 0
+  seamlessCubemap: 0
+  textureFormat: 1
+  maxTextureSize: 2048
+  textureSettings:
+    serializedVersion: 2
+    filterMode: 0
+    aniso: 1
+    mipBias: 0
+    wrapU: 1
+    wrapV: 1
+    wrapW: 1
+  nPOTScale: 0
+  lightmap: 0
+  compressionQuality: 50
+  spriteMode: 2
+  spriteExtrude: 1
+  spriteMeshType: 1
+  alignment: 0
+  spritePivot: {x: 0.5, y: 0.5}
+  spritePixelsToUnits: 15.9
+  spriteBorder: {x: 0, y: 0, z: 0, w: 0}
+  spriteGenerateFallbackPhysicsShape: 1
+  alphaUsage: 1
+  alphaIsTransparency: 1
+  spriteTessellationDetail: -1
+  textureType: 8
+  textureShape: 1
+  singleChannelComponent: 0
+  flipbookRows: 1
+  flipbookColumns: 1
+  maxTextureSizeSet: 0
+  compressionQualitySet: 0
+  textureFormatSet: 0
+  ignorePngGamma: 0
+  applyGammaDecoding: 0
+  cookieLightType: 0
+  platformSettings:
+  - serializedVersion: 3
+    buildTarget: DefaultTexturePlatform
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 0
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 3
+    buildTarget: Standalone
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 0
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  spriteSheet:
+    serializedVersion: 2
+    sprites:
+    - serializedVersion: 2
+      name: Cavesprites_0
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 104
+        width: 16
+        height: 16
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 777df3f41eec04530800000000000000
+      internalID: 3837294349612210039
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Cavesprites_1
+      rect:
+        serializedVersion: 2
+        x: 16
+        y: 104
+        width: 16
+        height: 16
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 75012a2cfabde6f80800000000000000
+      internalID: -8111304330916523945
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Cavesprites_2
+      rect:
+        serializedVersion: 2
+        x: 32
+        y: 104
+        width: 16
+        height: 16
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: b1990460a812bb7e0800000000000000
+      internalID: -1748767153609205477
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Cavesprites_3
+      rect:
+        serializedVersion: 2
+        x: 64
+        y: 104
+        width: 16
+        height: 16
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: b72925712caa6c040800000000000000
+      internalID: 4667605814407762555
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Cavesprites_4
+      rect:
+        serializedVersion: 2
+        x: 96
+        y: 104
+        width: 16
+        height: 16
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 50a82e7488e878cc0800000000000000
+      internalID: -3708839052143588859
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Cavesprites_5
+      rect:
+        serializedVersion: 2
+        x: 128
+        y: 104
+        width: 16
+        height: 16
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 97ca3639c8be8ece0800000000000000
+      internalID: -1375590697160954759
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Cavesprites_6
+      rect:
+        serializedVersion: 2
+        x: 160
+        y: 104
+        width: 16
+        height: 16
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: badb9fda7de1cc940800000000000000
+      internalID: 5317659171703340459
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Cavesprites_7
+      rect:
+        serializedVersion: 2
+        x: 80
+        y: 88
+        width: 16
+        height: 16
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: af988bce298bbf8e0800000000000000
+      internalID: -1658529096579642886
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Cavesprites_8
+      rect:
+        serializedVersion: 2
+        x: 112
+        y: 88
+        width: 16
+        height: 16
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 82fea2539568d4190800000000000000
+      internalID: -7976571647301062872
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Cavesprites_9
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 72
+        width: 16
+        height: 16
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: d244cee1433a94bb0800000000000000
+      internalID: -4951246871064722387
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Cavesprites_10
+      rect:
+        serializedVersion: 2
+        x: 16
+        y: 72
+        width: 16
+        height: 16
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 8ba0f04aa98ca3b90800000000000000
+      internalID: -7261270882678535496
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Cavesprites_11
+      rect:
+        serializedVersion: 2
+        x: 64
+        y: 72
+        width: 16
+        height: 16
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 3ec18b1ad8c16c350800000000000000
+      internalID: 6036543745165892835
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Cavesprites_12
+      rect:
+        serializedVersion: 2
+        x: 96
+        y: 72
+        width: 16
+        height: 16
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 76173d8c928ae0b00800000000000000
+      internalID: 796759081507582311
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Cavesprites_13
+      rect:
+        serializedVersion: 2
+        x: 128
+        y: 72
+        width: 16
+        height: 16
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 5e3b9c7a0503477a0800000000000000
+      internalID: -6380421649106619419
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Cavesprites_14
+      rect:
+        serializedVersion: 2
+        x: 160
+        y: 72
+        width: 16
+        height: 16
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 726e06be3cc85f710800000000000000
+      internalID: 1726440805261960743
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Cavesprites_15
+      rect:
+        serializedVersion: 2
+        x: 112
+        y: 56
+        width: 16
+        height: 16
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: b16220df7b25bb660800000000000000
+      internalID: 7402601362690811419
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Cavesprites_16
+      rect:
+        serializedVersion: 2
+        x: 144
+        y: 56
+        width: 16
+        height: 16
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 9320ae5453f573b40800000000000000
+      internalID: 5419905358974550585
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Cavesprites_17
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 40
+        width: 16
+        height: 16
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 009a16025e42ed570800000000000000
+      internalID: 8493266513776716032
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Cavesprites_18
+      rect:
+        serializedVersion: 2
+        x: 16
+        y: 40
+        width: 16
+        height: 16
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: a0bd226c12b24e320800000000000000
+      internalID: 2586239510075595530
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Cavesprites_19
+      rect:
+        serializedVersion: 2
+        x: 32
+        y: 40
+        width: 16
+        height: 16
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 50f3ee841a0259060800000000000000
+      internalID: 6959504676256366341
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Cavesprites_20
+      rect:
+        serializedVersion: 2
+        x: 64
+        y: 40
+        width: 16
+        height: 16
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: c8ec08acf67f81a10800000000000000
+      internalID: 1880524903938051724
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Cavesprites_21
+      rect:
+        serializedVersion: 2
+        x: 96
+        y: 40
+        width: 16
+        height: 16
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: d405cb78e381d3320800000000000000
+      internalID: 2539212421751132237
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Cavesprites_22
+      rect:
+        serializedVersion: 2
+        x: 128
+        y: 40
+        width: 16
+        height: 16
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: a02bb8b41765b2170800000000000000
+      internalID: 8154706594883154442
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Cavesprites_23
+      rect:
+        serializedVersion: 2
+        x: 160
+        y: 40
+        width: 16
+        height: 16
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 37f63a9db29716090800000000000000
+      internalID: -8043014230265073805
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Cavesprites_24
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 24
+        width: 16
+        height: 16
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 3ce48587fd57cf380800000000000000
+      internalID: -8936137957952696637
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Cavesprites_25
+      rect:
+        serializedVersion: 2
+        x: 16
+        y: 24
+        width: 16
+        height: 16
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: c388c3f27255c5370800000000000000
+      internalID: 8312612639003674684
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Cavesprites_26
+      rect:
+        serializedVersion: 2
+        x: 32
+        y: 24
+        width: 16
+        height: 16
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: b0e568896200bfd50800000000000000
+      internalID: 6772006630449372683
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Cavesprites_27
+      rect:
+        serializedVersion: 2
+        x: 64
+        y: 8
+        width: 16
+        height: 16
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 1d80810dd6e4eb760800000000000000
+      internalID: 7475498665031239889
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Cavesprites_28
+      rect:
+        serializedVersion: 2
+        x: 80
+        y: 8
+        width: 16
+        height: 16
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: a5e15501475fe70a0800000000000000
+      internalID: -6881793301736513958
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Cavesprites_29
+      rect:
+        serializedVersion: 2
+        x: 112
+        y: 8
+        width: 16
+        height: 16
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 9c9c1152cb5380180800000000000000
+      internalID: -9149003560811116087
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Cavesprites_30
+      rect:
+        serializedVersion: 2
+        x: 128
+        y: 8
+        width: 16
+        height: 16
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: ad0cd48e857c06a80800000000000000
+      internalID: -8475555314042814246
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    outline: []
+    physicsShape: []
+    bones: []
+    spriteID: 5e97eb03825dee720800000000000000
+    internalID: 0
+    vertices: []
+    indices: 
+    edges: []
+    weights: []
+    secondaryTextures: []
+  spritePackingTag: 
+  pSDRemoveMatte: 0
+  pSDShowRemoveMatteOption: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
