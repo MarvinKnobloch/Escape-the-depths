@@ -57,7 +57,7 @@ public class Menucontroller : MonoBehaviour
         Globalcalls.gameispaused = false;
         Time.timeScale = normaltimescale;
         Time.fixedDeltaTime = normalfixeddeltatime;
-        menusoundcontroller.playmenusound1();
+        if(menu.activeSelf == true) menusoundcontroller.playmenusound1();
         menu.SetActive(false);
         
     }

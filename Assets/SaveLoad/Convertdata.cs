@@ -5,15 +5,16 @@ using UnityEngine;
 public class Convertdata
 {
     public Vector3 playerposition;
-    public GameObject camerasection;
+    public int sectionnumber;
     public int cameradistance;
     public bool candash;
     public int currentzonemusic;
+    public float musicvolume;
 
     public void savedatainscript()
     {
         playerposition = Globalcalls.playeresetpoint;
-        camerasection = Globalcalls.boundscolliderobj;
+        sectionnumber = Globalcalls.currentsection;
         cameradistance = Globalcalls.savecameradistance;
         candash = Globalcalls.candash;
         currentzonemusic = Globalcalls.zonemusic;
@@ -21,7 +22,7 @@ public class Convertdata
     public void loaddata()
     {
         Globalcalls.playeresetpoint = playerposition;
-        Globalcalls.boundscolliderobj = camerasection;
+        Globalcalls.currentsection = sectionnumber;
         Globalcalls.savecameradistance = cameradistance;
         Globalcalls.candash = candash;
         Globalcalls.zonemusic = currentzonemusic;

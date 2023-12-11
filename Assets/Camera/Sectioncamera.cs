@@ -5,5 +5,6 @@ using UnityEngine;
 public class Sectioncamera : MonoBehaviour
 {
     public GameObject sectiongameobj;
+    public int sectionnumber;
     public int cameradistance;
 }

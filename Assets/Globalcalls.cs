@@ -10,6 +10,7 @@ public static class Globalcalls
 
     public static Vector3 playeresetpoint;
 
+    public static int currentsection;
     public static GameObject boundscolliderobj;
     public static int savecameradistance;
 
