@@ -48,6 +48,8 @@ public class Loadgamecontroller : MonoBehaviour
         player.transform.position = new Vector3(-5, 1, 0);
         Globalcalls.playeresetpoint = player.transform.position;
 
+        player.GetComponent<Playerstatemachine>().resetplayer();
+
         cinemachineConfiner.m_BoundingShape2D = sections[0].GetComponent<PolygonCollider2D>();
         Globalcalls.boundscolliderobj = sections[0];
         Globalcalls.currentsection = 0;

@@ -22,6 +22,7 @@ public class Musiccontroller : MonoBehaviour
             if (songs[i] == song)
             {
                 audiosource.clip = song;
+                audiosource.time = 160f;
                 targetvolume = songvolume[i];
                 audiosource.Play();
                 StartCoroutine(fadeinvolume(2f, 0));

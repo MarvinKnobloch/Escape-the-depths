@@ -50,6 +50,7 @@ public class Handlebutton : MonoBehaviour, IPointerEnterHandler, IPointerExitHan
     public void opennewgameconfirm()
     {
         newgameconfirm.SetActive(true);
+        menusoundcontroller.playmenusound1();
     }
     public void closegame()
     {
