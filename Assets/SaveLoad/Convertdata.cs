@@ -8,7 +8,6 @@ public class Convertdata
     public int sectionnumber;
     public int cameradistance;
     public bool candash;
-    public int currentzonemusic;
     public float musicvolume;
 
     public void savedatainscript()
@@ -17,7 +16,6 @@ public class Convertdata
         sectionnumber = Globalcalls.currentsection;
         cameradistance = Globalcalls.savecameradistance;
         candash = Globalcalls.candash;
-        currentzonemusic = Globalcalls.zonemusic;
     }
     public void loaddata()
     {
@@ -25,6 +23,5 @@ public class Convertdata
         Globalcalls.currentsection = sectionnumber;
         Globalcalls.savecameradistance = cameradistance;
         Globalcalls.candash = candash;
-        Globalcalls.zonemusic = currentzonemusic;
     }
 }

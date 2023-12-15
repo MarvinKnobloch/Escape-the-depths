@@ -4,11 +4,10 @@ using UnityEngine;
 
 public class Musiccontroller : MonoBehaviour
 {
-    private AudioSource audiosource;
+    public AudioSource audiosource;
     private float targetvolume;
 
-    [SerializeField] private AudioClip[] songs;
-    [SerializeField] private float[] songvolume;
+    [SerializeField] private Musicclips[] clips;
 
     private void Awake()
     {
@@ -17,15 +16,15 @@ public class Musiccontroller : MonoBehaviour
     }
     public void musiconstart(AudioClip song)
     {
-        for (int i = 0; i < songs.Length; i++)
+        for (int i = 0; i < clips.Length; i++)
         {
-            if (songs[i] == song)
+            if (clips[i].song == song)
             {
                 audiosource.clip = song;
-                //audiosource.time = 160f;
-                targetvolume = songvolume[i];
+                audiosource.time = 440f;
+                targetvolume = clips[i].volume;
                 audiosource.Play();
-                StartCoroutine(fadeinvolume(2f, 0));
+                StartCoroutine(fadeinvolume(3, 0));
                 break;
             }
         }
@@ -41,7 +40,7 @@ public class Musiccontroller : MonoBehaviour
         float duration = fadeoutspeed;
         float currentTime = 0;
         float start = audiosource.volume;
-        float targetVolume = 0.1f;
+        float targetVolume = 0;
         while (currentTime < duration)
         {
             currentTime += Time.deltaTime;
@@ -53,7 +52,7 @@ public class Musiccontroller : MonoBehaviour
             audiosource.clip = song;
             audiosource.time = cliptime;
             audiosource.Play();
-            StartCoroutine(fadeinvolume(fadeinspeed, 0.1f));
+            StartCoroutine(fadeinvolume(fadeinspeed, 0));
         }
         yield break;
     }
@@ -72,12 +71,11 @@ public class Musiccontroller : MonoBehaviour
     }
     public void choosesong(AudioClip song)
     {
-        for (int i = 0; i < songs.Length; i++)
+        for (int i = 0; i < clips.Length; i++)
         {
-            if(songs[i] == song)
+            if(clips[i].song == song)
             {
-                startfadeout(song, 0, 1, 1, songvolume[i]);
-                Globalcalls.zonemusic = i;
+                startfadeout(song, 0, 2.5f, 3, clips[i].volume);
                 break;
             }
         }

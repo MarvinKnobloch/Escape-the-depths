@@ -198,29 +198,29 @@ public class Playerstatemachine : MonoBehaviour
                     playermovement.playerflip();
                     playercollider.playergroundcheck();
                     playermovement.playercheckforgroundstate();
-                    playerhook.playercheckforhook();
                     playergravityswitch.playerswitchgravity();
                     playermemories.playerplacememory();
                     playermovement.playerdash();
                     playermovement.playergroundjump();
+                    playerhook.playercheckforhook();
                     break;
                 case States.Groundintoair:
                     playermovement.controlljumpheight();
                     playermovement.playergroundintoair();
-                    playerhook.playercheckforhook();
                     playermemories.playerplacememory();
                     playermovement.playerairdash();
+                    playerhook.playercheckforhook();
                     break;
                 case States.Air:
                     playermovement.playerflip();
                     playermovement.controlljumpheight();
                     playercollider.playergroundcheckair();
                     playermovement.playercheckforairstate();
-                    playerhook.playercheckforhook();
                     playergravityswitch.playerswitchgravity();
                     playermemories.playerplacememory();
                     playermovement.playerairdash();
                     playermovement.playerdoublejump();
+                    playerhook.playercheckforhook();
                     break;
                 case States.Dash:
                     playermovement.playerdashstate();
@@ -236,11 +236,11 @@ public class Playerstatemachine : MonoBehaviour
                     playermovement.playerflip();
                     playercollider.playergroundcheckair();
                     playermovement.playercheckforairstate();
-                    playerhook.playercheckforhook();
                     playergravityswitch.playerswitchgravity();
                     playermemories.playerplacememory();
                     playermovement.playerairdash();
                     playermovement.playerdoublejump();
+                    playerhook.playercheckforhook();
                     break;
                 case States.Slidewall:
                     playercollider.playerslidewall();
@@ -250,11 +250,11 @@ public class Playerstatemachine : MonoBehaviour
                     playermovement.playerflip();
                     playercollider.playerinfrontofwall();
                     playermovement.playercheckforgroundstate();
-                    playerhook.playercheckforhook();
                     playergravityswitch.playerswitchgravity();
                     playermemories.playerplacememory();
                     playermovement.playerdash();
                     playermovement.playergroundjump();
+                    playerhook.playercheckforhook();
                     break;
                 case States.Empty:
                     break;

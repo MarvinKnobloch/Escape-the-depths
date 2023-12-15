@@ -14,7 +14,6 @@ public class Loadgamecontroller : MonoBehaviour
     [SerializeField] private GameObject[] sections;
 
     [SerializeField] private Musiccontroller musiccontroller;
-    [SerializeField] private AudioClip[] songs;
     void Start()
     {
         if(loadgame == true)
@@ -28,7 +27,7 @@ public class Loadgamecontroller : MonoBehaviour
                 cinemachineConfiner.m_BoundingShape2D = sections[Globalcalls.currentsection].GetComponent<PolygonCollider2D>();
                 Globalcalls.boundscolliderobj = sections[Globalcalls.currentsection];
                 cinemachineVirtualCamera.m_Lens.OrthographicSize = Globalcalls.savecameradistance;
-                musiccontroller.musiconstart(songs[Globalcalls.zonemusic]);
+                musiccontroller.musiconstart(sections[Globalcalls.currentsection].GetComponent<Sectionmusic>().song);
             }
             else
             {
@@ -38,7 +37,7 @@ public class Loadgamecontroller : MonoBehaviour
         else
         {
             Globalcalls.savecameradistance = (int)cinemachineVirtualCamera.m_Lens.OrthographicSize;
-            musiccontroller.musiconstart(songs[Globalcalls.zonemusic]);
+            musiccontroller.musiconstart(sections[0].GetComponent<Sectionmusic>().song);
         }
         QualitySettings.vSyncCount = 0;
     }
@@ -59,9 +58,10 @@ public class Loadgamecontroller : MonoBehaviour
 
         GetComponent<Menucontroller>().closemenu();
 
-        Globalcalls.zonemusic = 0;
-        musiccontroller.musiconstart(songs[Globalcalls.zonemusic]);
+        musiccontroller.choosesong(sections[0].GetComponent<Sectionmusic>().song);
 
         Globalcalls.candash = false;
+
+        GetComponent<Saveandloadgame>().savegamedata();
     }
 }

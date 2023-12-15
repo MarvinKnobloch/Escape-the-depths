@@ -15,8 +15,6 @@ public class Cameravertical : MonoBehaviour
     [SerializeField] private float rightcameradistance;
 
     [SerializeField] private Musiccontroller musiccontroller;
-    [SerializeField] private AudioClip leftsidesong;
-    [SerializeField] private AudioClip rightsidesong;
 
 
     private void Awake()
@@ -32,22 +30,20 @@ public class Cameravertical : MonoBehaviour
             {
                 cinemachineConfiner.m_BoundingShape2D = leftcollider;
                 cinemachineVirtualCamera.m_Lens.OrthographicSize = leftcameradistance;
-                if(musiccontroller != null)
+                if (leftcollider.gameObject.GetComponent<Sectionmusic>().song != musiccontroller.audiosource.clip)
                 {
-                    musiccontroller.choosesong(leftsidesong);
+                    musiccontroller.choosesong(leftcollider.gameObject.GetComponent<Sectionmusic>().song);
                 }
             }
             else 
             {
                 cinemachineConfiner.m_BoundingShape2D = rightcollider;
                 cinemachineVirtualCamera.m_Lens.OrthographicSize = rightcameradistance;
-                if (musiccontroller != null)
+                if (rightcollider.gameObject.GetComponent<Sectionmusic>().song != musiccontroller.audiosource.clip)
                 {
-                    musiccontroller.choosesong(rightsidesong);
+                    musiccontroller.choosesong(rightcollider.gameObject.GetComponent<Sectionmusic>().song);
                 }
-            }
-            
+            }          
         }
     }
-
 }

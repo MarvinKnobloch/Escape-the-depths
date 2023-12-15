@@ -25,11 +25,11 @@ public class Playersounds : MonoBehaviour
         audiosource.Play();
     }
 
-    public void playfootstep1() => playsound(footstep1, 0.1f);
-    public void playfootstep2() => playsound(footstep2, 0.1f);
-    public void playjump() => playsound(jump, 0.6f);
-    public void playdash() => playsound(dash, 0.3f);
-    public void playgravityswitch() => playsound(gravityswitch, 0.3f);
-    public void playwhip() => playsound(whip, 0.25f);
-    public void playmemory() => playsound(memory, 0.3f);
+    public void playfootstep1() => playsound(footstep1, 0.2f);
+    public void playfootstep2() => playsound(footstep2, 0.2f);
+    public void playjump() => playsound(jump, 0.7f);
+    public void playdash() => playsound(dash, 0.4f);
+    public void playgravityswitch() => playsound(gravityswitch, 0.4f);
+    public void playwhip() => playsound(whip, 0.35f);
+    public void playmemory() => playsound(memory, 0.4f);
 }
