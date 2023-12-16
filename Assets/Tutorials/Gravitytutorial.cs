@@ -36,6 +36,6 @@ public class Gravitytutorial : MonoBehaviour
         gravityhotkey = controls.Player.Gravityswitch.GetBindingDisplayString();
         tutorialtext.text = "Step into the green light to gain the gravity switch ability.\n" +
                             "\nPress <color=green>" + gravityhotkey + "</color> to use it.\n" +
-                            "\nThe icon on the bottom left will display how often you can switch gravtiy.";
+                            "\nThe icon on the bottom left will display how often you can switch gravity.";
     }
 }

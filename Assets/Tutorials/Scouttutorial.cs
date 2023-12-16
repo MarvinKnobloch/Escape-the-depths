@@ -11,7 +11,7 @@ public class Scouttutorial : MonoBehaviour
 
     private string scouthotkey;
 
-    private void Awake()
+    private void Start()                                          // bei awake wird der text im build mode nicht upgedated?????????????????
     {
         tutorialtext = GetComponent<TextMeshProUGUI>();
         controls = Keybindinputmanager.inputActions;

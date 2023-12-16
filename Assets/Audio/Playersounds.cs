@@ -31,5 +31,5 @@ public class Playersounds : MonoBehaviour
     public void playdash() => playsound(dash, 0.4f);
     public void playgravityswitch() => playsound(gravityswitch, 0.4f);
     public void playwhip() => playsound(whip, 0.35f);
-    public void playmemory() => playsound(memory, 0.4f);
+    public void playmemory() => playsound(memory, 0.2f);
 }

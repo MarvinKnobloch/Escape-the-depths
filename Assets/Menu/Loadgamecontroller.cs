@@ -39,7 +39,7 @@ public class Loadgamecontroller : MonoBehaviour
             Globalcalls.savecameradistance = (int)cinemachineVirtualCamera.m_Lens.OrthographicSize;
             musiccontroller.musiconstart(sections[0].GetComponent<Sectionmusic>().song);
         }
-        QualitySettings.vSyncCount = 0;
+        QualitySettings.vSyncCount = 1;
     }
     public void newgame()
     {
