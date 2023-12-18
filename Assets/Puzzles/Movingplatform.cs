@@ -116,8 +116,15 @@ public class Movingplatform : MonoBehaviour
     public void resetforminstant()
     {
         movetime = 0f;
-        state = State.dontmove;
         transform.position = Startposi;
+        if (moveonenter == true)
+        {
+            state = State.dontmove;
+        }
+        else
+        {
+            state = State.movetoend;
+        }
     }
     private void holdposi()
     {

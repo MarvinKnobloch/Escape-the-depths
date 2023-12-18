@@ -29,14 +29,11 @@ public class Hooktutorial : MonoBehaviour
     private void hotkeysandtextupdate()
     {
         wipehotkey = controls.Player.Whip.GetBindingDisplayString();
-        tutorialtext.text = "Press <color=green>" + wipehotkey + "</color> to use the whip.\n" +
-                            "If your character is close enough to a whip point it will turn green and can be used. The green point also determine which is your current whip target.\n" +
-                            "Being below a wipe point will pull your character more upwards";
 
         wipehotkey = controls.Player.Whip.GetBindingDisplayString();
         tutorialtext.text = "If your character is close enough to a whip point it will turn green and can be used by pressing <color=green>" + wipehotkey + "</color>.\n" +
                             //"Press <color=green>" + wipehotkey + "</color> to activate the whip.\n" +
                             "\nThe green color also determines which your current whip target is.\n" +
-                            "\nIf your are straight below a wipe point will pull your character more upwards.";
+                            "\nIf your are straight below a wipe point your character will be pulled more upwards.";
     }
 }

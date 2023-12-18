@@ -377,5 +377,15 @@ public class Playerstatemachine : MonoBehaviour
             playergravityswitch.triggerplatformrotate();
         }
         rb.gravityScale = airgravityscale;
+
+        if (Hookobject.hookobjects.Count > 0)
+        {
+            for (int i = 0; i < Hookobject.hookobjects.Count; i++)
+            {
+                Hookobject.hookobjects[i].GetComponent<SpriteRenderer>().color = Color.white;               
+            }
+        }
+        hooktarget = null;
+        Hookobject.hookobjects.Clear();
     }
 }
