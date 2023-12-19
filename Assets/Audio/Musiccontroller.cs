@@ -7,6 +7,8 @@ public class Musiccontroller : MonoBehaviour
     public AudioSource audiosource;
     private float targetvolume;
 
+    //bool isPaused = false;
+
     [SerializeField] private Musicclips[] clips;
 
     private void Awake()
@@ -81,4 +83,20 @@ public class Musiccontroller : MonoBehaviour
             }
         }
     }
+    //void OnApplicationFocus(bool hasFocus)
+    //{
+    //    isPaused = !hasFocus;
+    //    pauseupdate();
+    //}
+
+    //void OnApplicationPause(bool pauseStatus)
+    //{
+    //    isPaused = pauseStatus;
+    //    pauseupdate();
+    //}
+    //private void pauseupdate()
+    //{
+    //    if (isPaused == true) audiosource.Pause();
+    //    else audiosource.UnPause();
+    //}
 }

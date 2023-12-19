@@ -359,11 +359,30 @@ public class Playerwhip
     }
     public void checkforwhipswitch()
     {
-        Vector3 lastlinepoint = psm.lineRenderer.GetPosition(percision - 1);
-        if (Vector3.Distance(psm.hooktarget.transform.position, lastlinepoint) < 0.1f)
+        psm.hookstarttime += Time.deltaTime;
+        if (psm.hooktarget != null)
         {
-            psm.playersounds.playwhip();
-            psm.state = Playerstatemachine.States.Whip;
+            Vector3 lastlinepoint = psm.lineRenderer.GetPosition(percision - 1);
+            if (Vector3.Distance(psm.hooktarget.transform.position, lastlinepoint) < 0.1f)
+            {
+                psm.hookstarttime = 0;
+                psm.playersounds.playwhip();
+                psm.state = Playerstatemachine.States.Whip;
+            }
+        }
+        else
+        {
+            Debug.Log("nohooktarget");
+            psm.lineRenderer.enabled = false;
+            psm.inhookstate = false;
+            psm.switchtoairstate();
+        }
+        if (psm.hookstarttime > 0.3f)
+        {
+            Debug.Log("overtime");
+            psm.lineRenderer.enabled = false;
+            psm.inhookstate = false;
+            psm.switchtoairstate();
         }
     }
 }

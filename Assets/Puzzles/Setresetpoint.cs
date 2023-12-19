@@ -10,6 +10,7 @@ public class Setresetpoint : MonoBehaviour
     [SerializeField] private GameObject sectionobj;
     private int sectionnumber;
     [SerializeField] private int camdistance;
+    private Saveandloadgame saveandloadgame;
 
     private void Awake()
     {
@@ -17,6 +18,8 @@ public class Setresetpoint : MonoBehaviour
         sectionnumber = GetComponentInParent<Sectioncamera>().sectionnumber - 1;
         camdistance = GetComponentInParent<Sectioncamera>().cameradistance;
         resetposi = transform.GetChild(0).transform.position;
+
+        saveandloadgame = GetComponent<Saveandloadgame>();
     }
     private void OnTriggerEnter2D(Collider2D collision)
     {
@@ -26,6 +29,7 @@ public class Setresetpoint : MonoBehaviour
             Globalcalls.currentsection = sectionnumber;
             Globalcalls.boundscolliderobj = sectionobj;
             Globalcalls.savecameradistance = camdistance;
+            saveandloadgame.savegameonplayerenter();
         }          
     }
 }

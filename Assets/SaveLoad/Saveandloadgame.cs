@@ -12,12 +12,25 @@ public class Saveandloadgame : MonoBehaviour
 
     private Convertdata convertdata = new Convertdata();
 
-    private void OnTriggerEnter2D(Collider2D collision)
+    public void savegameonplayerenter()
     {
-        if (collision.CompareTag("Player"))
+        if (Application.platform == RuntimePlatform.WebGLPlayer)
+        {
+            saveplayerprefs();
+        }
+        else
         {
             savegamedata();
         }
+    }
+    public void saveplayerprefs()
+    {
+        PlayerPrefs.SetFloat("playerxposi", Globalcalls.playeresetpoint.x);
+        PlayerPrefs.SetFloat("playeryposi", Globalcalls.playeresetpoint.y);
+        PlayerPrefs.SetInt("sectionnumber", Globalcalls.currentsection);
+        PlayerPrefs.SetInt("cameradistance", Globalcalls.savecameradistance);
+        if(Globalcalls.candash == false) PlayerPrefs.SetInt("candash", 0);
+        else PlayerPrefs.SetInt("candash", 1);
     }
     public void savegamedata()
     {

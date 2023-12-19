@@ -16,32 +16,54 @@ public class Loadgamecontroller : MonoBehaviour
     [SerializeField] private Musiccontroller musiccontroller;
     void Start()
     {
-        if(loadgame == true)
+        if (Application.platform == RuntimePlatform.WebGLPlayer)
         {
-            GetComponent<Saveandloadgame>().loadgamedate();
-
-            if (Globalcalls.couldnotloaddata == false)
+            if (PlayerPrefs.GetInt("firstgamestart") == 1)               //wenn das game zum aller ersten mal gestartet wird und der wert noch nicht geändert worden ist
             {
-                player.transform.position = Globalcalls.playeresetpoint;
+                player.transform.position = new Vector3(PlayerPrefs.GetFloat("playerxposi"), PlayerPrefs.GetFloat("playeryposi"), 0);
 
-                cinemachineConfiner.m_BoundingShape2D = sections[Globalcalls.currentsection].GetComponent<PolygonCollider2D>();
-                Globalcalls.boundscolliderobj = sections[Globalcalls.currentsection];
-                cinemachineVirtualCamera.m_Lens.OrthographicSize = Globalcalls.savecameradistance;
-                musiccontroller.musiconstart(sections[Globalcalls.currentsection].GetComponent<Sectionmusic>().song);
+                cinemachineConfiner.m_BoundingShape2D = sections[PlayerPrefs.GetInt("sectionnumber")].GetComponent<PolygonCollider2D>();
+                Globalcalls.boundscolliderobj = sections[PlayerPrefs.GetInt("sectionnumber")];
+                cinemachineVirtualCamera.m_Lens.OrthographicSize = PlayerPrefs.GetInt("cameradistance");
+                musiccontroller.musiconstart(sections[PlayerPrefs.GetInt("sectionnumber")].GetComponent<Sectionmusic>().song);
+                if (PlayerPrefs.GetInt("sectionnumber") > 1) Globalcalls.candash = true;
+                else Globalcalls.candash = false;
             }
-            else
+            else 
             {
-                newgame();
+                PlayerPrefs.SetInt("firstgamestart", 1);
+                newgameonweb();
             }
         }
         else
         {
-            Globalcalls.savecameradistance = (int)cinemachineVirtualCamera.m_Lens.OrthographicSize;
-            musiccontroller.musiconstart(sections[0].GetComponent<Sectionmusic>().song);
+            if (loadgame == true)
+            {
+                GetComponent<Saveandloadgame>().loadgamedate();
+
+                if (Globalcalls.couldnotloaddata == false)
+                {
+                    player.transform.position = Globalcalls.playeresetpoint;
+
+                    cinemachineConfiner.m_BoundingShape2D = sections[Globalcalls.currentsection].GetComponent<PolygonCollider2D>();
+                    Globalcalls.boundscolliderobj = sections[Globalcalls.currentsection];
+                    cinemachineVirtualCamera.m_Lens.OrthographicSize = Globalcalls.savecameradistance;
+                    musiccontroller.musiconstart(sections[Globalcalls.currentsection].GetComponent<Sectionmusic>().song);
+                }
+                else
+                {
+                    newgameonnonewebplatform();
+                }
+            }
+            else
+            {
+                Globalcalls.savecameradistance = (int)cinemachineVirtualCamera.m_Lens.OrthographicSize;
+                musiccontroller.musiconstart(sections[0].GetComponent<Sectionmusic>().song);
+            }
         }
         QualitySettings.vSyncCount = 1;
     }
-    public void newgame()
+    private void newgameonnonewebplatform()
     {
         Globalcalls.couldnotloaddata = false;
         player.transform.position = new Vector3(-5, 1, 0);
@@ -63,5 +85,36 @@ public class Loadgamecontroller : MonoBehaviour
         Globalcalls.candash = false;
 
         GetComponent<Saveandloadgame>().savegamedata();
+    }
+
+    private void newgameonweb()
+    {
+        player.transform.position = new Vector3(-5, 1, 0);
+        PlayerPrefs.SetFloat("playerxposi", player.transform.position.x);
+        PlayerPrefs.SetFloat("playeryposi", player.transform.position.y);
+        Globalcalls.playeresetpoint = player.transform.position;
+
+        player.GetComponent<Playerstatemachine>().resetplayer();
+
+        cinemachineConfiner.m_BoundingShape2D = sections[0].GetComponent<PolygonCollider2D>();
+        Globalcalls.boundscolliderobj = sections[0];
+        Globalcalls.currentsection = 0;
+        PlayerPrefs.SetInt("sectionnumber", Globalcalls.currentsection);
+
+        cinemachineVirtualCamera.m_Lens.OrthographicSize = 7;
+        Globalcalls.savecameradistance = 7;
+        PlayerPrefs.SetInt("cameradistance", Globalcalls.savecameradistance);
+
+        GetComponent<Menucontroller>().closemenu();
+
+        musiccontroller.choosesong(sections[0].GetComponent<Sectionmusic>().song);
+
+        Globalcalls.candash = false;
+        PlayerPrefs.SetInt("candash", 0);
+    }
+    public void newgamebutton()
+    {
+        if (Application.platform == RuntimePlatform.WebGLPlayer) newgameonweb();
+        else newgameonnonewebplatform();
     }
 }
