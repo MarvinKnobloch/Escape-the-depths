@@ -98,6 +98,15 @@ public partial class @Controlls : IInputActionCollection2, IDisposable
                     ""processors"": """",
                     ""interactions"": """",
                     ""initialStateCheck"": false
+                },
+                {
+                    ""name"": ""Pause"",
+                    ""type"": ""Button"",
+                    ""id"": ""a9b702c8-2bf0-45ab-aba2-028f925f0159"",
+                    ""expectedControlType"": ""Button"",
+                    ""processors"": """",
+                    ""interactions"": """",
+                    ""initialStateCheck"": false
                 }
             ],
             ""bindings"": [
@@ -225,11 +234,22 @@ public partial class @Controlls : IInputActionCollection2, IDisposable
                 {
                     ""name"": """",
                     ""id"": ""6b73cbea-a2a7-4989-b04e-553ef119bcfc"",
-                    ""path"": ""<Keyboard>/m"",
+                    ""path"": ""<Keyboard>/1"",
                     ""interactions"": """",
                     ""processors"": """",
                     ""groups"": """",
                     ""action"": ""Scoutmode"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""c0020a18-f3f4-4ae3-b185-7b3d41602c9a"",
+                    ""path"": ""<Keyboard>/3"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""Pause"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": false
                 }
@@ -337,6 +357,7 @@ public partial class @Controlls : IInputActionCollection2, IDisposable
         m_Player_Memorie = m_Player.FindAction("Memorie", throwIfNotFound: true);
         m_Player_Esc = m_Player.FindAction("Esc", throwIfNotFound: true);
         m_Player_Scoutmode = m_Player.FindAction("Scoutmode", throwIfNotFound: true);
+        m_Player_Pause = m_Player.FindAction("Pause", throwIfNotFound: true);
         // Menu
         m_Menu = asset.FindActionMap("Menu", throwIfNotFound: true);
         m_Menu_Openmenu = m_Menu.FindAction("Openmenu", throwIfNotFound: true);
@@ -407,6 +428,7 @@ public partial class @Controlls : IInputActionCollection2, IDisposable
     private readonly InputAction m_Player_Memorie;
     private readonly InputAction m_Player_Esc;
     private readonly InputAction m_Player_Scoutmode;
+    private readonly InputAction m_Player_Pause;
     public struct PlayerActions
     {
         private @Controlls m_Wrapper;
@@ -419,6 +441,7 @@ public partial class @Controlls : IInputActionCollection2, IDisposable
         public InputAction @Memorie => m_Wrapper.m_Player_Memorie;
         public InputAction @Esc => m_Wrapper.m_Player_Esc;
         public InputAction @Scoutmode => m_Wrapper.m_Player_Scoutmode;
+        public InputAction @Pause => m_Wrapper.m_Player_Pause;
         public InputActionMap Get() { return m_Wrapper.m_Player; }
         public void Enable() { Get().Enable(); }
         public void Disable() { Get().Disable(); }
@@ -452,6 +475,9 @@ public partial class @Controlls : IInputActionCollection2, IDisposable
                 @Scoutmode.started -= m_Wrapper.m_PlayerActionsCallbackInterface.OnScoutmode;
                 @Scoutmode.performed -= m_Wrapper.m_PlayerActionsCallbackInterface.OnScoutmode;
                 @Scoutmode.canceled -= m_Wrapper.m_PlayerActionsCallbackInterface.OnScoutmode;
+                @Pause.started -= m_Wrapper.m_PlayerActionsCallbackInterface.OnPause;
+                @Pause.performed -= m_Wrapper.m_PlayerActionsCallbackInterface.OnPause;
+                @Pause.canceled -= m_Wrapper.m_PlayerActionsCallbackInterface.OnPause;
             }
             m_Wrapper.m_PlayerActionsCallbackInterface = instance;
             if (instance != null)
@@ -480,6 +506,9 @@ public partial class @Controlls : IInputActionCollection2, IDisposable
                 @Scoutmode.started += instance.OnScoutmode;
                 @Scoutmode.performed += instance.OnScoutmode;
                 @Scoutmode.canceled += instance.OnScoutmode;
+                @Pause.started += instance.OnPause;
+                @Pause.performed += instance.OnPause;
+                @Pause.canceled += instance.OnPause;
             }
         }
     }
@@ -572,6 +601,7 @@ public partial class @Controlls : IInputActionCollection2, IDisposable
         void OnMemorie(InputAction.CallbackContext context);
         void OnEsc(InputAction.CallbackContext context);
         void OnScoutmode(InputAction.CallbackContext context);
+        void OnPause(InputAction.CallbackContext context);
     }
     public interface IMenuActions
     {
