@@ -14,20 +14,30 @@ public class Loadgamecontroller : MonoBehaviour
     [SerializeField] private GameObject[] sections;
 
     [SerializeField] private Musiccontroller musiccontroller;
+
+    [SerializeField] private bool setloadposi;
+    [SerializeField] private Vector3 loadposi;
+    [SerializeField] private int section;
+    [SerializeField] private int camdistance;
     void Start()
     {
         if (Application.platform == RuntimePlatform.WebGLPlayer)
         {
             if (PlayerPrefs.GetInt("firstgamestart") == 1)               //wenn das game zum aller ersten mal gestartet wird und der wert noch nicht geändert worden ist
             {
-                player.transform.position = new Vector3(PlayerPrefs.GetFloat("playerxposi"), PlayerPrefs.GetFloat("playeryposi"), 0);
+                Globalcalls.playeresetpoint = new Vector3(PlayerPrefs.GetFloat("playerxposi"), PlayerPrefs.GetFloat("playeryposi"), 0);
+                player.transform.position = Globalcalls.playeresetpoint;
 
-                cinemachineConfiner.m_BoundingShape2D = sections[PlayerPrefs.GetInt("sectionnumber")].GetComponent<PolygonCollider2D>();
-                Globalcalls.boundscolliderobj = sections[PlayerPrefs.GetInt("sectionnumber")];
-                cinemachineVirtualCamera.m_Lens.OrthographicSize = PlayerPrefs.GetInt("cameradistance");
-                musiccontroller.musiconstart(sections[PlayerPrefs.GetInt("sectionnumber")].GetComponent<Sectionmusic>().song);
-                if (PlayerPrefs.GetInt("sectionnumber") > 1) Globalcalls.candash = true;
+                Globalcalls.currentsection = PlayerPrefs.GetInt("sectionnumber");
+                Globalcalls.boundscolliderobj = sections[Globalcalls.currentsection];
+
+                cinemachineConfiner.m_BoundingShape2D = sections[Globalcalls.currentsection].GetComponent<PolygonCollider2D>();
+                musiccontroller.musiconstart(sections[Globalcalls.currentsection].GetComponent<Sectionmusic>().song);
+                if (Globalcalls.currentsection > 1) Globalcalls.candash = true;
                 else Globalcalls.candash = false;
+
+                Globalcalls.savecameradistance = PlayerPrefs.GetInt("cameradistance");
+                cinemachineVirtualCamera.m_Lens.OrthographicSize = Globalcalls.savecameradistance;
             }
             else 
             {
@@ -54,6 +64,22 @@ public class Loadgamecontroller : MonoBehaviour
                 {
                     newgameonnonewebplatform();
                 }
+            }
+            else if (setloadposi == true)
+            {
+                player.transform.position = loadposi;
+                Globalcalls.playeresetpoint = loadposi;
+
+                Globalcalls.currentsection = section;
+                Globalcalls.boundscolliderobj = sections[Globalcalls.currentsection];
+
+                cinemachineConfiner.m_BoundingShape2D = sections[Globalcalls.currentsection].GetComponent<PolygonCollider2D>();
+                musiccontroller.musiconstart(sections[Globalcalls.currentsection].GetComponent<Sectionmusic>().song);
+                if (Globalcalls.currentsection > 1) Globalcalls.candash = true;
+                else Globalcalls.candash = false;
+
+                Globalcalls.savecameradistance = camdistance;
+                cinemachineVirtualCamera.m_Lens.OrthographicSize = Globalcalls.savecameradistance;
             }
             else
             {

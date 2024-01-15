@@ -332,6 +332,7 @@ public class Playerstatemachine : MonoBehaviour
         groundcheckcollider.sharedMaterial = nofriction;
         StopCoroutine("usememory");
 
+        currentstate = null;
         lineRenderer.enabled = false;
         rb.velocity = Vector2.zero;
         state = States.Air;
