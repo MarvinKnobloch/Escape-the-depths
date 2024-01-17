@@ -267,6 +267,15 @@ public partial class @Controlls : IInputActionCollection2, IDisposable
                     ""processors"": """",
                     ""interactions"": """",
                     ""initialStateCheck"": false
+                },
+                {
+                    ""name"": ""Screenshot"",
+                    ""type"": ""Button"",
+                    ""id"": ""b25ff5fb-a801-4aa4-8dc8-becc0aab137a"",
+                    ""expectedControlType"": ""Button"",
+                    ""processors"": """",
+                    ""interactions"": """",
+                    ""initialStateCheck"": false
                 }
             ],
             ""bindings"": [
@@ -278,6 +287,17 @@ public partial class @Controlls : IInputActionCollection2, IDisposable
                     ""processors"": """",
                     ""groups"": """",
                     ""action"": ""Openmenu"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""2da641d1-f315-4ff4-98d3-42b9ffc0561c"",
+                    ""path"": ""<Keyboard>/f1"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""Screenshot"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": false
                 }
@@ -361,6 +381,7 @@ public partial class @Controlls : IInputActionCollection2, IDisposable
         // Menu
         m_Menu = asset.FindActionMap("Menu", throwIfNotFound: true);
         m_Menu_Openmenu = m_Menu.FindAction("Openmenu", throwIfNotFound: true);
+        m_Menu_Screenshot = m_Menu.FindAction("Screenshot", throwIfNotFound: true);
     }
 
     public void Dispose()
@@ -518,11 +539,13 @@ public partial class @Controlls : IInputActionCollection2, IDisposable
     private readonly InputActionMap m_Menu;
     private IMenuActions m_MenuActionsCallbackInterface;
     private readonly InputAction m_Menu_Openmenu;
+    private readonly InputAction m_Menu_Screenshot;
     public struct MenuActions
     {
         private @Controlls m_Wrapper;
         public MenuActions(@Controlls wrapper) { m_Wrapper = wrapper; }
         public InputAction @Openmenu => m_Wrapper.m_Menu_Openmenu;
+        public InputAction @Screenshot => m_Wrapper.m_Menu_Screenshot;
         public InputActionMap Get() { return m_Wrapper.m_Menu; }
         public void Enable() { Get().Enable(); }
         public void Disable() { Get().Disable(); }
@@ -535,6 +558,9 @@ public partial class @Controlls : IInputActionCollection2, IDisposable
                 @Openmenu.started -= m_Wrapper.m_MenuActionsCallbackInterface.OnOpenmenu;
                 @Openmenu.performed -= m_Wrapper.m_MenuActionsCallbackInterface.OnOpenmenu;
                 @Openmenu.canceled -= m_Wrapper.m_MenuActionsCallbackInterface.OnOpenmenu;
+                @Screenshot.started -= m_Wrapper.m_MenuActionsCallbackInterface.OnScreenshot;
+                @Screenshot.performed -= m_Wrapper.m_MenuActionsCallbackInterface.OnScreenshot;
+                @Screenshot.canceled -= m_Wrapper.m_MenuActionsCallbackInterface.OnScreenshot;
             }
             m_Wrapper.m_MenuActionsCallbackInterface = instance;
             if (instance != null)
@@ -542,6 +568,9 @@ public partial class @Controlls : IInputActionCollection2, IDisposable
                 @Openmenu.started += instance.OnOpenmenu;
                 @Openmenu.performed += instance.OnOpenmenu;
                 @Openmenu.canceled += instance.OnOpenmenu;
+                @Screenshot.started += instance.OnScreenshot;
+                @Screenshot.performed += instance.OnScreenshot;
+                @Screenshot.canceled += instance.OnScreenshot;
             }
         }
     }
@@ -606,5 +635,6 @@ public partial class @Controlls : IInputActionCollection2, IDisposable
     public interface IMenuActions
     {
         void OnOpenmenu(InputAction.CallbackContext context);
+        void OnScreenshot(InputAction.CallbackContext context);
     }
 }

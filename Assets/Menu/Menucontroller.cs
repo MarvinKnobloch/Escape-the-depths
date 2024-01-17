@@ -22,6 +22,8 @@ public class Menucontroller : MonoBehaviour
 
     [SerializeField] private Menusoundcontroller menusoundcontroller;
 
+    [SerializeField] private string screenshotpath;
+
 
     private void Awake()
     {
@@ -69,6 +71,20 @@ public class Menucontroller : MonoBehaviour
             //audioSource.UnPause();
             StartCoroutine("unpausegame");
         }
+#if UNITY_EDITOR
+        if (controlls.Menu.Screenshot.WasPerformedThisFrame())
+        {
+            
+            string date = DateTime.Now.ToString("yyyy/MM/dd HH:mm:ss");
+            date = date.Replace("/", ".");
+            date = date.Replace(" ", "_");
+            date = date.Replace(":", ".");
+            string path = screenshotpath + "Escape the depths " + date + ".png";
+            Debug.Log("hallo");
+
+            ScreenCapture.CaptureScreenshot(path);
+        }
+#endif
     }
     IEnumerator pauseaudio()
     {

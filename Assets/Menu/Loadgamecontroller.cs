@@ -16,7 +16,7 @@ public class Loadgamecontroller : MonoBehaviour
     [SerializeField] private Musiccontroller musiccontroller;
 
     [SerializeField] private bool setloadposi;
-    [SerializeField] private Vector3 loadposi;
+    [SerializeField] private GameObject loadposi;
     [SerializeField] private int section;
     [SerializeField] private int camdistance;
     void Start()
@@ -67,10 +67,10 @@ public class Loadgamecontroller : MonoBehaviour
             }
             else if (setloadposi == true)
             {
-                player.transform.position = loadposi;
-                Globalcalls.playeresetpoint = loadposi;
+                player.transform.position = loadposi.transform.position + Vector3.up;
+                Globalcalls.playeresetpoint = loadposi.transform.position + Vector3.up;
 
-                Globalcalls.currentsection = section;
+                Globalcalls.currentsection = section - 1;
                 Globalcalls.boundscolliderobj = sections[Globalcalls.currentsection];
 
                 cinemachineConfiner.m_BoundingShape2D = sections[Globalcalls.currentsection].GetComponent<PolygonCollider2D>();

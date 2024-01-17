@@ -17,7 +17,7 @@ public static class Globalcalls
     public static int currentgravitystacks;
     public static int currentmemorystacks;
 
-    public static bool candash = true;
+    public static bool candash = false;
 
     public static bool couldnotloaddata;
 }
