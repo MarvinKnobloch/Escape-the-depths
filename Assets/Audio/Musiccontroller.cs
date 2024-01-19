@@ -1,15 +1,16 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using System;
 
 public class Musiccontroller : MonoBehaviour
 {
     public AudioSource audiosource;
     private float targetvolume;
 
-    //bool isPaused = false;
+    [NonSerialized] public AudioClip currentsong;
 
-    [SerializeField] private Musicclips[] clips;
+    public Musicclips[] clips;
 
     private void Awake()
     {
@@ -40,6 +41,7 @@ public class Musiccontroller : MonoBehaviour
     }
     public IEnumerator fadeoutvolume(AudioClip song, float cliptime, float fadeoutspeed, float fadeinspeed)
     {
+        currentsong = song;
         float duration = fadeoutspeed;
         float currentTime = 0;
         float start = audiosource.volume;
@@ -61,6 +63,7 @@ public class Musiccontroller : MonoBehaviour
     }
     public IEnumerator fadeinvolume(float fadeinspeed, float startvolume)
     {
+        currentsong = audiosource.clip;
         float duration = fadeinspeed;
         float currentTime = 0;
         float start = startvolume;

@@ -10,7 +10,7 @@ public class Playergravityswitch
 
     public void playerswitchgravity()
     {
-        if (psm.controlls.Player.Gravityswitch.WasPerformedThisFrame() && Globalcalls.currentgravitystacks > 0)
+        if (psm.controlls.Player.Gravityswitch.WasPerformedThisFrame() && Globalcalls.dontreadplayerinputs == false && Globalcalls.currentgravitystacks > 0)
         {
             Globalcalls.currentgravitystacks--;
             Cooldowns.instance.handlegravitystacks();

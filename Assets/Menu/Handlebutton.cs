@@ -9,6 +9,7 @@ public class Handlebutton : MonoBehaviour, IPointerEnterHandler, IPointerExitHan
     [SerializeField] private GameObject menucontroller;
     [SerializeField] private GameObject menuoverview;
     [SerializeField] private GameObject settingscontroller;
+    [SerializeField] private GameObject credits;
     [SerializeField] private GameObject newgameconfirm;
     private Handlemenu handlemenu;
 
@@ -50,6 +51,12 @@ public class Handlebutton : MonoBehaviour, IPointerEnterHandler, IPointerExitHan
     public void opennewgameconfirm()
     {
         newgameconfirm.SetActive(true);
+        menusoundcontroller.playmenusound1();
+    }
+    public void opencredits()
+    {
+        credits.SetActive(true);
+        menuoverview.SetActive(false);
         menusoundcontroller.playmenusound1();
     }
     public void closegame()

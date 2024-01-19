@@ -14,6 +14,7 @@ public class Scoutcontroller : MonoBehaviour
 
     [SerializeField] private CinemachineVirtualCamera cinemachineVirtual;
     [SerializeField] private Camera maincam;
+
     private void Awake()
     {
         controlls = Keybindinputmanager.inputActions;
@@ -24,9 +25,9 @@ public class Scoutcontroller : MonoBehaviour
         {
             if(menu.activeSelf == false)
             {
-                if (Globalcalls.gameispaused == false)
+                if (Globalcalls.gameispaused == false && scoutobj.activeSelf == false)
                 {
-                    Globalcalls.gameispaused = true;
+                    Globalcalls.dontreadplayerinputs = true;
                     scoutobj.SetActive(true);
                     scouttarget.transform.position = new Vector3(maincam.transform.position.x, maincam.transform.position.y, 0);
                     cinemachineVirtual.Follow = scouttarget.transform;
@@ -50,5 +51,6 @@ public class Scoutcontroller : MonoBehaviour
         cinemachineVirtual.GetCinemachineComponent<CinemachineFramingTransposer>().m_SoftZoneWidth = 0.8f;
         cinemachineVirtual.GetCinemachineComponent<CinemachineFramingTransposer>().m_SoftZoneHeight = 0.8f;
         cinemachineVirtual.Follow = player.transform;
+        Globalcalls.dontreadplayerinputs = false;
     }
 }

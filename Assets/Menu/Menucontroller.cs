@@ -12,6 +12,7 @@ public class Menucontroller : MonoBehaviour
     [SerializeField] private GameObject menuoverview;
     [SerializeField] private GameObject newgameconfirm;
     [SerializeField] private GameObject pausewindow;
+    [SerializeField] private GameObject scoutobj;
     [SerializeField] private AudioMixer audiomixer;
     [SerializeField] private AudioSource audioSource;
     private string gamevalue = "gamevolume";
@@ -38,7 +39,7 @@ public class Menucontroller : MonoBehaviour
     }
     private void Update()
     {
-        if (controlls.Menu.Openmenu.WasPerformedThisFrame() && Globalcalls.gameispaused == false)
+        if (controlls.Menu.Openmenu.WasPerformedThisFrame() && Globalcalls.gameispaused == false && scoutobj.activeSelf == false)
         {
             Globalcalls.gameispaused = true;
             Time.timeScale = 0f;
@@ -56,7 +57,7 @@ public class Menucontroller : MonoBehaviour
         {
             closemenu();
         }
-        if(controlls.Player.Pause.WasPerformedThisFrame() && Globalcalls.gameispaused == false)
+        if(controlls.Player.Pause.WasPerformedThisFrame() && Globalcalls.gameispaused == false && scoutobj.activeSelf == false)
         {
             Globalcalls.gameispaused = true;
             Time.timeScale = 0f;

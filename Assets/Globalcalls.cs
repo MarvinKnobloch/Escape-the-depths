@@ -19,5 +19,7 @@ public static class Globalcalls
 
     public static bool candash = false;
 
+    public static bool dontreadplayerinputs;
+
     public static bool couldnotloaddata;
 }

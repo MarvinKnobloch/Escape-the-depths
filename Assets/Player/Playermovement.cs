@@ -68,7 +68,7 @@ public class Playermovement
 
     public void playergroundjump()
     {
-        if (psm.controlls.Player.Jump.WasPerformedThisFrame() && psm.canjump == true)
+        if (psm.controlls.Player.Jump.WasPerformedThisFrame() && psm.canjump == true && Globalcalls.dontreadplayerinputs == false)
         {
             psm.ChangeAnimationState(jumpstate);
             psm.canjump = false;
@@ -81,7 +81,7 @@ public class Playermovement
     }
     public void playerdoublejump()
     {
-        if (psm.controlls.Player.Jump.WasPerformedThisFrame() && psm.doublejump == true)
+        if (psm.controlls.Player.Jump.WasPerformedThisFrame() && psm.doublejump == true && Globalcalls.dontreadplayerinputs == false)
         {
             psm.ChangeAnimationState(jumpstate);
             psm.rb.velocity = new Vector2(psm.rb.velocity.x, 0);
@@ -97,7 +97,7 @@ public class Playermovement
     {
         if(psm.isjumping == true)
         {
-            if (psm.controlls.Player.Jump.WasReleasedThisFrame())
+            if (psm.controlls.Player.Jump.WasReleasedThisFrame() && Globalcalls.dontreadplayerinputs == false)
             {
                 psm.isjumping = false;
                 if (psm.gravityswitchactiv == false)
@@ -144,7 +144,7 @@ public class Playermovement
 
     public void playerdash()
     {
-        if (psm.controlls.Player.Dash.WasPerformedThisFrame() && Globalcalls.candash == true)
+        if (psm.controlls.Player.Dash.WasPerformedThisFrame() && Globalcalls.candash == true && Globalcalls.dontreadplayerinputs == false)
         {
             psm.inair = true;
             startdash();
@@ -152,7 +152,7 @@ public class Playermovement
     }
     public void playerairdash()
     {
-        if(psm.controlls.Player.Dash.WasPerformedThisFrame() && psm.currentdashcount < psm.maxdashcount && Globalcalls.candash == true)
+        if(psm.controlls.Player.Dash.WasPerformedThisFrame() && psm.currentdashcount < psm.maxdashcount && Globalcalls.candash == true && Globalcalls.dontreadplayerinputs == false) 
         {
             psm.currentdashcount++;
             startdash();

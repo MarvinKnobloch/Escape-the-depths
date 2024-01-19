@@ -94,6 +94,7 @@ public class Playerstatemachine : MonoBehaviour
     public bool gravityswitchactiv;
 
     //sound
+    public Musiccontroller musiccontroller;
     public Playersounds playersounds;
     public Playersounds playermemorysound;
 
@@ -127,6 +128,7 @@ public class Playerstatemachine : MonoBehaviour
         rb = GetComponent<Rigidbody2D>();
         controlls = Keybindinputmanager.inputActions;
         movehotkey = controlls.Player.Move;
+        Globalcalls.dontreadplayerinputs = false;
 
         //animator = GetComponent<Animator>();
         animator = GetComponentInChildren<Animator>();
@@ -190,7 +192,8 @@ public class Playerstatemachine : MonoBehaviour
     {
         if(Globalcalls.gameispaused == false)
         {
-            move.x = movehotkey.ReadValue<Vector2>().x;
+            if (Globalcalls.dontreadplayerinputs == false) move.x = movehotkey.ReadValue<Vector2>().x;
+            else move = Vector2.zero;
             switch (state)
             {
                 default:
@@ -336,6 +339,11 @@ public class Playerstatemachine : MonoBehaviour
         lineRenderer.enabled = false;
         rb.velocity = Vector2.zero;
         state = States.Air;
+
+        if (Globalcalls.boundscolliderobj.GetComponent<Sectionmusic>().song != musiccontroller.currentsong)
+        {
+            musiccontroller.choosesong(Globalcalls.boundscolliderobj.GetComponent<Sectionmusic>().song);
+        }
     }
     public void endmemorytimer()
     {
