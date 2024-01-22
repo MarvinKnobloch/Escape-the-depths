@@ -30,7 +30,7 @@ public class Cameravertical : MonoBehaviour
             {
                 cinemachineConfiner.m_BoundingShape2D = leftcollider;
                 cinemachineVirtualCamera.m_Lens.OrthographicSize = leftcameradistance;
-                if (leftcollider.gameObject.GetComponent<Sectionmusic>().song != musiccontroller.audiosource.clip)
+                if (leftcollider.gameObject.GetComponent<Sectionmusic>().song != musiccontroller.currentsong)
                 {
                     musiccontroller.choosesong(leftcollider.gameObject.GetComponent<Sectionmusic>().song);
                 }
@@ -39,7 +39,7 @@ public class Cameravertical : MonoBehaviour
             {
                 cinemachineConfiner.m_BoundingShape2D = rightcollider;
                 cinemachineVirtualCamera.m_Lens.OrthographicSize = rightcameradistance;
-                if (rightcollider.gameObject.GetComponent<Sectionmusic>().song != musiccontroller.audiosource.clip)
+                if (rightcollider.gameObject.GetComponent<Sectionmusic>().song != musiccontroller.currentsong)
                 {
                     musiccontroller.choosesong(rightcollider.gameObject.GetComponent<Sectionmusic>().song);
                 }

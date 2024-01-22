@@ -19,6 +19,8 @@ public class Loadgamecontroller : MonoBehaviour
     [SerializeField] private GameObject loadposi;
     [SerializeField] private int section;
     [SerializeField] private int camdistance;
+
+    [SerializeField] private Gametimer gametimer;
     void Start()
     {
         if (Application.platform == RuntimePlatform.WebGLPlayer)
@@ -38,6 +40,9 @@ public class Loadgamecontroller : MonoBehaviour
 
                 Globalcalls.savecameradistance = PlayerPrefs.GetInt("cameradistance");
                 cinemachineVirtualCamera.m_Lens.OrthographicSize = Globalcalls.savecameradistance;
+
+                Globalcalls.currentgametime = PlayerPrefs.GetInt("gametime");
+                gametimer.gametimeupdate();
             }
             else 
             {
@@ -59,6 +64,7 @@ public class Loadgamecontroller : MonoBehaviour
                     Globalcalls.boundscolliderobj = sections[Globalcalls.currentsection];
                     cinemachineVirtualCamera.m_Lens.OrthographicSize = Globalcalls.savecameradistance;
                     musiccontroller.musiconstart(sections[Globalcalls.currentsection].GetComponent<Sectionmusic>().song);
+                    gametimer.gametimeupdate();
                 }
                 else
                 {
@@ -108,6 +114,9 @@ public class Loadgamecontroller : MonoBehaviour
 
         musiccontroller.choosesong(sections[0].GetComponent<Sectionmusic>().song);
 
+        Globalcalls.currentgametime = 0;
+        gametimer.gametimeupdate();
+
         Globalcalls.candash = false;
 
         GetComponent<Saveandloadgame>().savegamedata();
@@ -134,6 +143,10 @@ public class Loadgamecontroller : MonoBehaviour
         GetComponent<Menucontroller>().closemenu();
 
         musiccontroller.choosesong(sections[0].GetComponent<Sectionmusic>().song);
+
+        Globalcalls.currentgametime = 0;
+        PlayerPrefs.SetInt("gametime", 0);
+        gametimer.gametimeupdate();
 
         Globalcalls.candash = false;
         PlayerPrefs.SetInt("candash", 0);

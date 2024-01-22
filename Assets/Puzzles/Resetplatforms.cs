@@ -16,6 +16,8 @@ public class Resetplatforms : MonoBehaviour
     {
         if (collision.CompareTag("Player"))
         {
+            Globalcalls.currentgametime = collision.GetComponent<Playerstatemachine>().gametimer.currentgametime;
+            collision.GetComponent<Playerstatemachine>().savegame();
             particlesystem.Stop();
             particlesystem.gameObject.SetActive(false);
             foreach (GameObject obj in resetplatforms)

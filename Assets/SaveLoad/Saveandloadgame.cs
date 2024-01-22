@@ -29,6 +29,7 @@ public class Saveandloadgame : MonoBehaviour
         PlayerPrefs.SetFloat("playeryposi", Globalcalls.playeresetpoint.y);
         PlayerPrefs.SetInt("sectionnumber", Globalcalls.currentsection);
         PlayerPrefs.SetInt("cameradistance", Globalcalls.savecameradistance);
+        PlayerPrefs.SetInt("gametime", Globalcalls.currentgametime);
         if(Globalcalls.candash == false) PlayerPrefs.SetInt("candash", 0);
         else PlayerPrefs.SetInt("candash", 1);
     }

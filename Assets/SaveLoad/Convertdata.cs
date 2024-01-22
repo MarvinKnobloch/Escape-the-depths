@@ -9,6 +9,7 @@ public class Convertdata
     public int cameradistance;
     public bool candash;
     public float musicvolume;
+    public int gametime;
 
     public void savedatainscript()
     {
@@ -16,6 +17,7 @@ public class Convertdata
         sectionnumber = Globalcalls.currentsection;
         cameradistance = Globalcalls.savecameradistance;
         candash = Globalcalls.candash;
+        gametime = Globalcalls.currentgametime;
     }
     public void loaddata()
     {
@@ -23,5 +25,6 @@ public class Convertdata
         Globalcalls.currentsection = sectionnumber;
         Globalcalls.savecameradistance = cameradistance;
         Globalcalls.candash = candash;
+        Globalcalls.currentgametime = gametime;
     }
 }

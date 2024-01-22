@@ -98,8 +98,10 @@ public class Playerstatemachine : MonoBehaviour
     public Playersounds playersounds;
     public Playersounds playermemorysound;
 
-    //background
+    //background //timer
     [SerializeField] private Movingbackground background;
+    public Gametimer gametimer;
+    [NonSerialized] public Saveandloadgame saveandloadgame;
 
 
     private Playermovement playermovement = new Playermovement();
@@ -130,7 +132,8 @@ public class Playerstatemachine : MonoBehaviour
         movehotkey = controlls.Player.Move;
         Globalcalls.dontreadplayerinputs = false;
 
-        //animator = GetComponent<Animator>();
+        saveandloadgame = GetComponent<Saveandloadgame>();
+
         animator = GetComponentInChildren<Animator>();
         currentstate = idlestate;
 
@@ -396,5 +399,10 @@ public class Playerstatemachine : MonoBehaviour
         }
         hooktarget = null;
         Hookobject.hookobjects.Clear();
+    }
+
+    public void savegame()
+    {
+        saveandloadgame.savegameonplayerenter();
     }
 }

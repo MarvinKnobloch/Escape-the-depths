@@ -22,6 +22,8 @@ public class Playerresetzone : MonoBehaviour
         Playerstatemachine playerstatemachine = player.GetComponent<Playerstatemachine>();
         playerstatemachine.move = Vector2.zero;
         playerstatemachine.resetplayer();
+        Globalcalls.currentgametime = playerstatemachine.gametimer.currentgametime;
+        playerstatemachine.savegame();
         player.SetActive(false);
         yield return new WaitForSeconds(0.5f);
         player.SetActive(true);

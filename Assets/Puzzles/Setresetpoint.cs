@@ -25,6 +25,7 @@ public class Setresetpoint : MonoBehaviour
     {
         if (collision.CompareTag("Player"))
         {
+            Globalcalls.currentgametime = collision.GetComponent<Playerstatemachine>().gametimer.currentgametime;
             Globalcalls.playeresetpoint = resetposi;
             Globalcalls.currentsection = sectionnumber;
             Globalcalls.boundscolliderobj = sectionobj;

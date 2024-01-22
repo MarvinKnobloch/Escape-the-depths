@@ -13,6 +13,7 @@ public static class Globalcalls
     public static int currentsection;
     public static GameObject boundscolliderobj;                            //wird noch benötigt da currentsection nur ein int ist und man das gameobject mit dem collider braucht  (19.12.2023)
     public static int savecameradistance;
+    public static int currentgametime;
 
     public static int currentgravitystacks;
     public static int currentmemorystacks;
