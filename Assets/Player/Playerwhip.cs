@@ -37,17 +37,20 @@ public class Playerwhip
         if (Hookobject.hookobjects.Count > 0 && psm.inhookstate == false)
         {
             hooktargetupdate();
-            if (psm.controlls.Player.Whip.WasPerformedThisFrame() && Globalcalls.dontreadplayerinputs == false)
+            if (psm.controlls.Player.Whip.WasPerformedThisFrame() || psm.controlls.Player.Controllerwhip.WasPerformedThisFrame())
             {
-                checkforclosesthook();
-                hookplayer();
-                activatelinerenderer();
+                if (Globalcalls.dontreadplayerinputs == false)
+                {
+                    checkforclosesthook();
+                    hookplayer();
+                    activatelinerenderer();
 
-                addvelocity = true;
-                psm.inair = true;
-                Globalcalls.jumpcantriggerswitch = true;
-                psm.ChangeAnimationState(whipstartstate);
-                psm.state = Playerstatemachine.States.Throwwhip;
+                    addvelocity = true;
+                    psm.inair = true;
+                    Globalcalls.jumpcantriggerswitch = true;
+                    psm.ChangeAnimationState(whipstartstate);
+                    psm.state = Playerstatemachine.States.Throwwhip;
+                }
             }
         }
     }

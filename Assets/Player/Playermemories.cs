@@ -7,28 +7,31 @@ public class Playermemories
     public Playerstatemachine psm;
     public void playerplacememory()
     {
-        if (psm.controlls.Player.Memorie.WasPerformedThisFrame() && Globalcalls.dontreadplayerinputs == false)
+        if (psm.controlls.Player.Memorie.WasPerformedThisFrame() || psm.controlls.Player.Controllermemorie.WasPerformedThisFrame())
         {
-            if(psm.memoryisrunning == false && Globalcalls.currentmemorystacks > 0)
+            if (Globalcalls.dontreadplayerinputs == false)
             {
-                Globalcalls.currentmemorystacks--;
-                Cooldowns.instance.handlememorystacks();
-                psm.memoryisrunning = true;
-                psm.memoryposition = psm.transform.position;
-                psm.memoryvelocity = psm.rb.velocity;
-                psm.memorydashcount = psm.currentdashcount;
-                psm.playermemoryimage.transform.position = psm.transform.position;
-                psm.playermemoryimage.transform.rotation = psm.transform.rotation;
-                psm.playermemoryimage.SetActive(true);
-                psm.memorycdobject.transform.parent.gameObject.SetActive(true);
-                psm.memorycamera = psm.cinemachineConfiner.m_BoundingShape2D;
-                psm.playermemorysound.playmemory();
-                return;
+                if (psm.memoryisrunning == false && Globalcalls.currentmemorystacks > 0)
+                {
+                    Globalcalls.currentmemorystacks--;
+                    Cooldowns.instance.handlememorystacks();
+                    psm.memoryisrunning = true;
+                    psm.memoryposition = psm.transform.position;
+                    psm.memoryvelocity = psm.rb.velocity;
+                    psm.memorydashcount = psm.currentdashcount;
+                    psm.playermemoryimage.transform.position = psm.transform.position;
+                    psm.playermemoryimage.transform.rotation = psm.transform.rotation;
+                    psm.playermemoryimage.SetActive(true);
+                    psm.memorycdobject.transform.parent.gameObject.SetActive(true);
+                    psm.memorycamera = psm.cinemachineConfiner.m_BoundingShape2D;
+                    psm.playermemorysound.playmemory();
+                    return;
+                }
+                if (psm.memoryisrunning == true)
+                {
+                    psm.memorystart();
+                }
             }
-            if (psm.memoryisrunning == true)
-            {
-                psm.memorystart();
-            }           
         }
     }
     //IEnumerator usememory()

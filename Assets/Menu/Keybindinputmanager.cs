@@ -33,17 +33,18 @@ public class Keybindinputmanager : MonoBehaviour
             Debug.Log("action nicht vorhanden");
             return;
         }
-        if (action.bindings[bindingindex].isComposite)                                          // Composite = W/A/S/D mehrere hotkeys die gebindet werden müssen
-        {
-            var firstpartindex = bindingindex + 1;
-            if (firstpartindex < action.bindings.Count && action.bindings[firstpartindex].isPartOfComposite)
-            {
-                dorebind(action, firstpartindex, textwhilerebind, true);
-            }
-        }
-        else
+        //if (action.bindings[bindingindex].isComposite)                                          // Composite = W/A/S/D mehrere hotkeys die gebindet werden müssen
+        //{
+        //    var firstpartindex = bindingindex + 1;
+        //    if (firstpartindex < action.bindings.Count && action.bindings[firstpartindex].isPartOfComposite)
+        //    {
+        //        dorebind(action, firstpartindex, textwhilerebind, true);
+        //    }
+        //}
+        //else
         {
             dorebind(action, bindingindex, textwhilerebind, false);
+
         }
 
     }

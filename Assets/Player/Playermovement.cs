@@ -21,7 +21,7 @@ public class Playermovement
             psm.playervelocity.Set(psm.movementspeed * psm.slopemovement.x * -psm.move.x, psm.movementspeed * psm.slopemovement.y * -psm.move.x);
             psm.rb.velocity = psm.playervelocity;
         }
-        else if(psm.isonplatform == true)
+        else if (psm.isonplatform == true)
         {
             //if(psm.platformmove != null) psm.playervelocity.Set(psm.platformmove.velocity.x + psm.move.x * psm.movementspeed, psm.platformmove.velocity.y + psm.rb.velocity.y);
             //psm.playervelocity.Set(psm.platformrb.velocity.x + psm.move.x * psm.movementspeed, psm.platformrb.velocity.y);
@@ -30,12 +30,12 @@ public class Playermovement
         }
         else
         {
-            if(psm.gravityswitchactiv == false) psm.playervelocity.Set(psm.move.x * psm.movementspeed, -0.5f);
+            if (psm.gravityswitchactiv == false) psm.playervelocity.Set(psm.move.x * psm.movementspeed, -0.5f);
             else psm.playervelocity.Set(psm.move.x * psm.movementspeed, 0.5f);
             //psm.rb.velocity = psm.rb.velocity = psm.playervelocity;
             psm.rb.velocity = psm.playervelocity;
         }
-        if(psm.move == Vector2.zero)
+        if (psm.move == Vector2.zero)
         {
             psm.ChangeAnimationState(idlestate);
         }
@@ -68,29 +68,35 @@ public class Playermovement
 
     public void playergroundjump()
     {
-        if (psm.controlls.Player.Jump.WasPerformedThisFrame() && psm.canjump == true && Globalcalls.dontreadplayerinputs == false)
+        if (psm.controlls.Player.Jump.WasPerformedThisFrame() || psm.controlls.Player.Controllerjump.WasPerformedThisFrame())
         {
-            psm.ChangeAnimationState(jumpstate);
-            psm.canjump = false;
-            psm.isjumping = true;
-            psm.jumptime = psm.maxshortjumptime;
-            psm.groundintoairswitch();
-            psm.playersounds.playjump();
-            playerupwardsmomentum(psm.jumpheight);
+            if (psm.canjump == true && Globalcalls.dontreadplayerinputs == false)
+            {
+                psm.ChangeAnimationState(jumpstate);
+                psm.canjump = false;
+                psm.isjumping = true;
+                psm.jumptime = psm.maxshortjumptime;
+                psm.groundintoairswitch();
+                psm.playersounds.playjump();
+                playerupwardsmomentum(psm.jumpheight);
+            }
         }
     }
     public void playerdoublejump()
     {
-        if (psm.controlls.Player.Jump.WasPerformedThisFrame() && psm.doublejump == true && Globalcalls.dontreadplayerinputs == false)
+        if (psm.controlls.Player.Jump.WasPerformedThisFrame() || psm.controlls.Player.Controllerjump.WasPerformedThisFrame())
         {
-            psm.ChangeAnimationState(jumpstate);
-            psm.rb.velocity = new Vector2(psm.rb.velocity.x, 0);
-            Globalcalls.jumpcantriggerswitch = true;
-            psm.doublejump = false;
-            psm.isjumping = true;
-            psm.jumptime = psm.maxshortjumptime;
-            psm.playersounds.playjump();
-            playerupwardsmomentum(psm.jumpheight);
+            if (psm.doublejump == true && Globalcalls.dontreadplayerinputs == false)
+            {
+                psm.ChangeAnimationState(jumpstate);
+                psm.rb.velocity = new Vector2(psm.rb.velocity.x, 0);
+                Globalcalls.jumpcantriggerswitch = true;
+                psm.doublejump = false;
+                psm.isjumping = true;
+                psm.jumptime = psm.maxshortjumptime;
+                psm.playersounds.playjump();
+                playerupwardsmomentum(psm.jumpheight);
+            }
         }
     }
     public void controlljumpheight()
@@ -144,18 +150,24 @@ public class Playermovement
 
     public void playerdash()
     {
-        if (psm.controlls.Player.Dash.WasPerformedThisFrame() && Globalcalls.candash == true && Globalcalls.dontreadplayerinputs == false)
+        if(psm.controlls.Player.Dash.WasPerformedThisFrame() || psm.controlls.Player.Controllerdash.WasPerformedThisFrame())
         {
-            psm.inair = true;
-            startdash();
+            if (Globalcalls.candash == true && Globalcalls.dontreadplayerinputs == false)
+            {
+                psm.inair = true;
+                startdash();
+            }
         }
     }
     public void playerairdash()
     {
-        if(psm.controlls.Player.Dash.WasPerformedThisFrame() && psm.currentdashcount < psm.maxdashcount && Globalcalls.candash == true && Globalcalls.dontreadplayerinputs == false) 
+        if (psm.controlls.Player.Dash.WasPerformedThisFrame() || psm.controlls.Player.Controllerdash.WasPerformedThisFrame())
         {
-            psm.currentdashcount++;
-            startdash();
+            if (psm.currentdashcount < psm.maxdashcount && Globalcalls.candash == true && Globalcalls.dontreadplayerinputs == false)
+            {
+                psm.currentdashcount++;
+                startdash();
+            }
         }
     }
     private void startdash()

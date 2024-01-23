@@ -10,16 +10,19 @@ public class Playergravityswitch
 
     public void playerswitchgravity()
     {
-        if (psm.controlls.Player.Gravityswitch.WasPerformedThisFrame() && Globalcalls.dontreadplayerinputs == false && Globalcalls.currentgravitystacks > 0)
+        if (psm.controlls.Player.Gravityswitch.WasPerformedThisFrame() || psm.controlls.Player.Controllergravityswitch.WasPerformedThisFrame())
         {
-            Globalcalls.currentgravitystacks--;
-            Cooldowns.instance.handlegravitystacks();
-            psm.gravityswitchactiv = !psm.gravityswitchactiv;
-            psm.transform.Rotate(180, 0, 0);
-            if (psm.rb.gravityScale > 0) psm.rb.gravityScale = psm.airgravityscale * -1;
-            else psm.rb.gravityScale = psm.airgravityscale;
-            psm.playersounds.playgravityswitch();
-            platformrotate?.Invoke();
+            if (Globalcalls.dontreadplayerinputs == false && Globalcalls.currentgravitystacks > 0)
+            {
+                Globalcalls.currentgravitystacks--;
+                Cooldowns.instance.handlegravitystacks();
+                psm.gravityswitchactiv = !psm.gravityswitchactiv;
+                psm.transform.Rotate(180, 0, 0);
+                if (psm.rb.gravityScale > 0) psm.rb.gravityScale = psm.airgravityscale * -1;
+                else psm.rb.gravityScale = psm.airgravityscale;
+                psm.playersounds.playgravityswitch();
+                platformrotate?.Invoke();
+            }
         }
     }
     public void triggerplatformrotate()

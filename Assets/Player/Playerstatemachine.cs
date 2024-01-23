@@ -19,6 +19,7 @@ public class Playerstatemachine : MonoBehaviour
     [NonSerialized] public Rigidbody2D rb;
 
     private InputAction movehotkey;
+    private InputAction controllermovehotkey;
     public Vector2 move;
     [NonSerialized] public Vector2 playervelocity;
 
@@ -130,6 +131,7 @@ public class Playerstatemachine : MonoBehaviour
         rb = GetComponent<Rigidbody2D>();
         controlls = Keybindinputmanager.inputActions;
         movehotkey = controlls.Player.Move;
+        controllermovehotkey = controlls.Player.Controllermove;
         Globalcalls.dontreadplayerinputs = false;
 
         saveandloadgame = GetComponent<Saveandloadgame>();
@@ -195,7 +197,12 @@ public class Playerstatemachine : MonoBehaviour
     {
         if(Globalcalls.gameispaused == false)
         {
-            if (Globalcalls.dontreadplayerinputs == false) move.x = movehotkey.ReadValue<Vector2>().x;
+            if (Globalcalls.dontreadplayerinputs == false) 
+            {
+                move.x = movehotkey.ReadValue<Vector2>().x;
+                move.x = controllermovehotkey.ReadValue<Vector2>().x;
+            }
+
             else move = Vector2.zero;
             switch (state)
             {
@@ -211,7 +218,7 @@ public class Playerstatemachine : MonoBehaviour
                     playerhook.playercheckforhook();
                     break;
                 case States.Groundintoair:
-                    playermovement.controlljumpheight();
+                    //playermovement.controlljumpheight();
                     playermovement.playergroundintoair();
                     playermemories.playerplacememory();
                     playermovement.playerairdash();
@@ -219,7 +226,7 @@ public class Playerstatemachine : MonoBehaviour
                     break;
                 case States.Air:
                     playermovement.playerflip();
-                    playermovement.controlljumpheight();
+                    //playermovement.controlljumpheight();
                     playercollider.playergroundcheckair();
                     playermovement.playercheckforairstate();
                     playergravityswitch.playerswitchgravity();

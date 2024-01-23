@@ -107,13 +107,94 @@ public partial class @Controlls : IInputActionCollection2, IDisposable
                     ""processors"": """",
                     ""interactions"": """",
                     ""initialStateCheck"": false
+                },
+                {
+                    ""name"": ""Controllermove"",
+                    ""type"": ""Value"",
+                    ""id"": ""a57218f5-1a58-4af0-ae96-0d5b5a73cf29"",
+                    ""expectedControlType"": ""Stick"",
+                    ""processors"": """",
+                    ""interactions"": """",
+                    ""initialStateCheck"": true
+                },
+                {
+                    ""name"": ""Controllerjump"",
+                    ""type"": ""Button"",
+                    ""id"": ""141eeeee-370b-45c3-9b80-2ed7e2a67af5"",
+                    ""expectedControlType"": ""Button"",
+                    ""processors"": """",
+                    ""interactions"": """",
+                    ""initialStateCheck"": false
+                },
+                {
+                    ""name"": ""Controllerdash"",
+                    ""type"": ""Button"",
+                    ""id"": ""b48f0c5c-764a-4b19-938f-2c607646387f"",
+                    ""expectedControlType"": ""Button"",
+                    ""processors"": """",
+                    ""interactions"": """",
+                    ""initialStateCheck"": false
+                },
+                {
+                    ""name"": ""Controllergravityswitch"",
+                    ""type"": ""Button"",
+                    ""id"": ""0be2cf90-c622-4254-90ac-7806a5abfc21"",
+                    ""expectedControlType"": ""Button"",
+                    ""processors"": """",
+                    ""interactions"": """",
+                    ""initialStateCheck"": false
+                },
+                {
+                    ""name"": ""Controllerwhip"",
+                    ""type"": ""Button"",
+                    ""id"": ""e4940b0b-3558-4096-94f5-84e75bc434ca"",
+                    ""expectedControlType"": ""Button"",
+                    ""processors"": """",
+                    ""interactions"": """",
+                    ""initialStateCheck"": false
+                },
+                {
+                    ""name"": ""Controllermemorie"",
+                    ""type"": ""Button"",
+                    ""id"": ""f1159c78-a7af-4e13-9082-6f69c54ee9bd"",
+                    ""expectedControlType"": ""Button"",
+                    ""processors"": """",
+                    ""interactions"": """",
+                    ""initialStateCheck"": false
+                },
+                {
+                    ""name"": ""Controllerscoutmode"",
+                    ""type"": ""Button"",
+                    ""id"": ""77631135-f9d1-4b50-9bb3-013320e0c49d"",
+                    ""expectedControlType"": ""Button"",
+                    ""processors"": """",
+                    ""interactions"": """",
+                    ""initialStateCheck"": false
+                },
+                {
+                    ""name"": ""Controllerpause"",
+                    ""type"": ""Button"",
+                    ""id"": ""3c1335d3-2b81-4759-9e96-b6371245f2f7"",
+                    ""expectedControlType"": ""Button"",
+                    ""processors"": """",
+                    ""interactions"": """",
+                    ""initialStateCheck"": false
+                },
+                {
+                    ""name"": ""Controlleresc"",
+                    ""type"": ""Button"",
+                    ""id"": ""3d4647e6-5052-4e54-b990-274034d0b6e4"",
+                    ""expectedControlType"": ""Button"",
+                    ""processors"": """",
+                    ""interactions"": """",
+                    ""initialStateCheck"": false
                 }
             ],
             ""bindings"": [
                 {
                     ""name"": ""WASD"",
                     ""id"": ""00ca640b-d935-4593-8157-c05846ea39b3"",
-                    ""path"": ""Dpad"",
+                    ""path"": ""2DVector(mode=1)"",
                     ""interactions"": """",
                     ""processors"": """",
                     ""groups"": """",
@@ -122,45 +203,45 @@ public partial class @Controlls : IInputActionCollection2, IDisposable
                     ""isPartOfComposite"": false
                 },
                 {
-                    ""name"": ""up"",
+                    ""name"": ""Up"",
                     ""id"": ""7c4c8e84-ca2b-44ad-9e5c-36e40a596c60"",
                     ""path"": ""<Keyboard>/w"",
                     ""interactions"": """",
                     ""processors"": """",
-                    ""groups"": ""Keyboard&Mouse"",
+                    ""groups"": """",
                     ""action"": ""Move"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": true
                 },
                 {
-                    ""name"": ""down"",
+                    ""name"": ""Down"",
                     ""id"": ""957ac5a3-8743-4f29-9576-5d8939107bc2"",
                     ""path"": ""<Keyboard>/s"",
                     ""interactions"": """",
                     ""processors"": """",
-                    ""groups"": ""Keyboard&Mouse"",
+                    ""groups"": """",
                     ""action"": ""Move"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": true
                 },
                 {
-                    ""name"": ""left"",
-                    ""id"": ""245b2263-2176-49ae-ac8b-d6ccef70113f"",
+                    ""name"": ""Left"",
+                    ""id"": ""66642087-c10b-4302-876d-c91f67e921ad"",
                     ""path"": ""<Keyboard>/a"",
                     ""interactions"": """",
                     ""processors"": """",
-                    ""groups"": ""Keyboard&Mouse"",
+                    ""groups"": """",
                     ""action"": ""Move"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": true
                 },
                 {
-                    ""name"": ""right"",
-                    ""id"": ""fcfe95b8-67b9-4526-84b5-5d0bc98d6400"",
+                    ""name"": ""Right"",
+                    ""id"": ""b5034035-ac5b-4575-8745-5f32dbeb1114"",
                     ""path"": ""<Keyboard>/d"",
                     ""interactions"": """",
                     ""processors"": """",
-                    ""groups"": "";Keyboard&Mouse"",
+                    ""groups"": """",
                     ""action"": ""Move"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": true
@@ -250,6 +331,149 @@ public partial class @Controlls : IInputActionCollection2, IDisposable
                     ""processors"": """",
                     ""groups"": """",
                     ""action"": ""Pause"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": ""2D Vector"",
+                    ""id"": ""90a63d5b-1d4d-4895-96a0-6ee9cca9971a"",
+                    ""path"": ""2DVector"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""Controllermove"",
+                    ""isComposite"": true,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": ""up"",
+                    ""id"": ""cdfe26d0-2e25-4132-9168-b1d63b829fe5"",
+                    ""path"": ""<Joystick>/stick/up"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""Controllermove"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": true
+                },
+                {
+                    ""name"": ""down"",
+                    ""id"": ""ac295c5d-072c-41b2-b3f5-687aed96b448"",
+                    ""path"": ""<Joystick>/stick/down"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""Controllermove"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": true
+                },
+                {
+                    ""name"": ""left"",
+                    ""id"": ""6d25c6c1-b3ba-439e-9272-e63e84f80390"",
+                    ""path"": ""<Joystick>/stick/left"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""Controllermove"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": true
+                },
+                {
+                    ""name"": ""right"",
+                    ""id"": ""5d638131-15c2-4c1a-bc5b-dbdbd51d7eb0"",
+                    ""path"": ""<Joystick>/stick/right"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""Controllermove"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": true
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""86bf6ff2-aed9-4339-b36f-dec9db0289b0"",
+                    ""path"": ""<HID::mayflash limited MAYFLASH GameCube Controller Adapter>/button2"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""Controllerjump"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""97a82f27-32db-433f-8980-2f1bc59addc4"",
+                    ""path"": ""<HID::mayflash limited MAYFLASH GameCube Controller Adapter>/button3"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""Controllerdash"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""c372877a-47ed-4dd3-8e0b-f04351604193"",
+                    ""path"": ""<Joystick>/trigger"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""Controllergravityswitch"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""9a035044-c368-4d0a-ac98-851c9aee9bf6"",
+                    ""path"": ""<HID::mayflash limited MAYFLASH GameCube Controller Adapter>/button4"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""Controllerwhip"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""b734f8d0-1703-46ba-ac8a-ad711557cc58"",
+                    ""path"": ""<HID::mayflash limited MAYFLASH GameCube Controller Adapter>/button5"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""Controllermemorie"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""b28a8037-d832-45cf-bcae-1e849e5af081"",
+                    ""path"": ""<HID::mayflash limited MAYFLASH GameCube Controller Adapter>/button6"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""Controllerscoutmode"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""494ebfe2-636d-42a9-8687-d003556618c6"",
+                    ""path"": ""<HID::mayflash limited MAYFLASH GameCube Controller Adapter>/button8"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""Controllerpause"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""4c3d3e4d-fe96-4bef-bfc9-fab606dc46b4"",
+                    ""path"": ""<HID::mayflash limited MAYFLASH GameCube Controller Adapter>/button10"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""Controlleresc"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": false
                 }
@@ -378,6 +602,15 @@ public partial class @Controlls : IInputActionCollection2, IDisposable
         m_Player_Esc = m_Player.FindAction("Esc", throwIfNotFound: true);
         m_Player_Scoutmode = m_Player.FindAction("Scoutmode", throwIfNotFound: true);
         m_Player_Pause = m_Player.FindAction("Pause", throwIfNotFound: true);
+        m_Player_Controllermove = m_Player.FindAction("Controllermove", throwIfNotFound: true);
+        m_Player_Controllerjump = m_Player.FindAction("Controllerjump", throwIfNotFound: true);
+        m_Player_Controllerdash = m_Player.FindAction("Controllerdash", throwIfNotFound: true);
+        m_Player_Controllergravityswitch = m_Player.FindAction("Controllergravityswitch", throwIfNotFound: true);
+        m_Player_Controllerwhip = m_Player.FindAction("Controllerwhip", throwIfNotFound: true);
+        m_Player_Controllermemorie = m_Player.FindAction("Controllermemorie", throwIfNotFound: true);
+        m_Player_Controllerscoutmode = m_Player.FindAction("Controllerscoutmode", throwIfNotFound: true);
+        m_Player_Controllerpause = m_Player.FindAction("Controllerpause", throwIfNotFound: true);
+        m_Player_Controlleresc = m_Player.FindAction("Controlleresc", throwIfNotFound: true);
         // Menu
         m_Menu = asset.FindActionMap("Menu", throwIfNotFound: true);
         m_Menu_Openmenu = m_Menu.FindAction("Openmenu", throwIfNotFound: true);
@@ -450,6 +683,15 @@ public partial class @Controlls : IInputActionCollection2, IDisposable
     private readonly InputAction m_Player_Esc;
     private readonly InputAction m_Player_Scoutmode;
     private readonly InputAction m_Player_Pause;
+    private readonly InputAction m_Player_Controllermove;
+    private readonly InputAction m_Player_Controllerjump;
+    private readonly InputAction m_Player_Controllerdash;
+    private readonly InputAction m_Player_Controllergravityswitch;
+    private readonly InputAction m_Player_Controllerwhip;
+    private readonly InputAction m_Player_Controllermemorie;
+    private readonly InputAction m_Player_Controllerscoutmode;
+    private readonly InputAction m_Player_Controllerpause;
+    private readonly InputAction m_Player_Controlleresc;
     public struct PlayerActions
     {
         private @Controlls m_Wrapper;
@@ -463,6 +705,15 @@ public partial class @Controlls : IInputActionCollection2, IDisposable
         public InputAction @Esc => m_Wrapper.m_Player_Esc;
         public InputAction @Scoutmode => m_Wrapper.m_Player_Scoutmode;
         public InputAction @Pause => m_Wrapper.m_Player_Pause;
+        public InputAction @Controllermove => m_Wrapper.m_Player_Controllermove;
+        public InputAction @Controllerjump => m_Wrapper.m_Player_Controllerjump;
+        public InputAction @Controllerdash => m_Wrapper.m_Player_Controllerdash;
+        public InputAction @Controllergravityswitch => m_Wrapper.m_Player_Controllergravityswitch;
+        public InputAction @Controllerwhip => m_Wrapper.m_Player_Controllerwhip;
+        public InputAction @Controllermemorie => m_Wrapper.m_Player_Controllermemorie;
+        public InputAction @Controllerscoutmode => m_Wrapper.m_Player_Controllerscoutmode;
+        public InputAction @Controllerpause => m_Wrapper.m_Player_Controllerpause;
+        public InputAction @Controlleresc => m_Wrapper.m_Player_Controlleresc;
         public InputActionMap Get() { return m_Wrapper.m_Player; }
         public void Enable() { Get().Enable(); }
         public void Disable() { Get().Disable(); }
@@ -499,6 +750,33 @@ public partial class @Controlls : IInputActionCollection2, IDisposable
                 @Pause.started -= m_Wrapper.m_PlayerActionsCallbackInterface.OnPause;
                 @Pause.performed -= m_Wrapper.m_PlayerActionsCallbackInterface.OnPause;
                 @Pause.canceled -= m_Wrapper.m_PlayerActionsCallbackInterface.OnPause;
+                @Controllermove.started -= m_Wrapper.m_PlayerActionsCallbackInterface.OnControllermove;
+                @Controllermove.performed -= m_Wrapper.m_PlayerActionsCallbackInterface.OnControllermove;
+                @Controllermove.canceled -= m_Wrapper.m_PlayerActionsCallbackInterface.OnControllermove;
+                @Controllerjump.started -= m_Wrapper.m_PlayerActionsCallbackInterface.OnControllerjump;
+                @Controllerjump.performed -= m_Wrapper.m_PlayerActionsCallbackInterface.OnControllerjump;
+                @Controllerjump.canceled -= m_Wrapper.m_PlayerActionsCallbackInterface.OnControllerjump;
+                @Controllerdash.started -= m_Wrapper.m_PlayerActionsCallbackInterface.OnControllerdash;
+                @Controllerdash.performed -= m_Wrapper.m_PlayerActionsCallbackInterface.OnControllerdash;
+                @Controllerdash.canceled -= m_Wrapper.m_PlayerActionsCallbackInterface.OnControllerdash;
+                @Controllergravityswitch.started -= m_Wrapper.m_PlayerActionsCallbackInterface.OnControllergravityswitch;
+                @Controllergravityswitch.performed -= m_Wrapper.m_PlayerActionsCallbackInterface.OnControllergravityswitch;
+                @Controllergravityswitch.canceled -= m_Wrapper.m_PlayerActionsCallbackInterface.OnControllergravityswitch;
+                @Controllerwhip.started -= m_Wrapper.m_PlayerActionsCallbackInterface.OnControllerwhip;
+                @Controllerwhip.performed -= m_Wrapper.m_PlayerActionsCallbackInterface.OnControllerwhip;
+                @Controllerwhip.canceled -= m_Wrapper.m_PlayerActionsCallbackInterface.OnControllerwhip;
+                @Controllermemorie.started -= m_Wrapper.m_PlayerActionsCallbackInterface.OnControllermemorie;
+                @Controllermemorie.performed -= m_Wrapper.m_PlayerActionsCallbackInterface.OnControllermemorie;
+                @Controllermemorie.canceled -= m_Wrapper.m_PlayerActionsCallbackInterface.OnControllermemorie;
+                @Controllerscoutmode.started -= m_Wrapper.m_PlayerActionsCallbackInterface.OnControllerscoutmode;
+                @Controllerscoutmode.performed -= m_Wrapper.m_PlayerActionsCallbackInterface.OnControllerscoutmode;
+                @Controllerscoutmode.canceled -= m_Wrapper.m_PlayerActionsCallbackInterface.OnControllerscoutmode;
+                @Controllerpause.started -= m_Wrapper.m_PlayerActionsCallbackInterface.OnControllerpause;
+                @Controllerpause.performed -= m_Wrapper.m_PlayerActionsCallbackInterface.OnControllerpause;
+                @Controllerpause.canceled -= m_Wrapper.m_PlayerActionsCallbackInterface.OnControllerpause;
+                @Controlleresc.started -= m_Wrapper.m_PlayerActionsCallbackInterface.OnControlleresc;
+                @Controlleresc.performed -= m_Wrapper.m_PlayerActionsCallbackInterface.OnControlleresc;
+                @Controlleresc.canceled -= m_Wrapper.m_PlayerActionsCallbackInterface.OnControlleresc;
             }
             m_Wrapper.m_PlayerActionsCallbackInterface = instance;
             if (instance != null)
@@ -530,6 +808,33 @@ public partial class @Controlls : IInputActionCollection2, IDisposable
                 @Pause.started += instance.OnPause;
                 @Pause.performed += instance.OnPause;
                 @Pause.canceled += instance.OnPause;
+                @Controllermove.started += instance.OnControllermove;
+                @Controllermove.performed += instance.OnControllermove;
+                @Controllermove.canceled += instance.OnControllermove;
+                @Controllerjump.started += instance.OnControllerjump;
+                @Controllerjump.performed += instance.OnControllerjump;
+                @Controllerjump.canceled += instance.OnControllerjump;
+                @Controllerdash.started += instance.OnControllerdash;
+                @Controllerdash.performed += instance.OnControllerdash;
+                @Controllerdash.canceled += instance.OnControllerdash;
+                @Controllergravityswitch.started += instance.OnControllergravityswitch;
+                @Controllergravityswitch.performed += instance.OnControllergravityswitch;
+                @Controllergravityswitch.canceled += instance.OnControllergravityswitch;
+                @Controllerwhip.started += instance.OnControllerwhip;
+                @Controllerwhip.performed += instance.OnControllerwhip;
+                @Controllerwhip.canceled += instance.OnControllerwhip;
+                @Controllermemorie.started += instance.OnControllermemorie;
+                @Controllermemorie.performed += instance.OnControllermemorie;
+                @Controllermemorie.canceled += instance.OnControllermemorie;
+                @Controllerscoutmode.started += instance.OnControllerscoutmode;
+                @Controllerscoutmode.performed += instance.OnControllerscoutmode;
+                @Controllerscoutmode.canceled += instance.OnControllerscoutmode;
+                @Controllerpause.started += instance.OnControllerpause;
+                @Controllerpause.performed += instance.OnControllerpause;
+                @Controllerpause.canceled += instance.OnControllerpause;
+                @Controlleresc.started += instance.OnControlleresc;
+                @Controlleresc.performed += instance.OnControlleresc;
+                @Controlleresc.canceled += instance.OnControlleresc;
             }
         }
     }
@@ -631,6 +936,15 @@ public partial class @Controlls : IInputActionCollection2, IDisposable
         void OnEsc(InputAction.CallbackContext context);
         void OnScoutmode(InputAction.CallbackContext context);
         void OnPause(InputAction.CallbackContext context);
+        void OnControllermove(InputAction.CallbackContext context);
+        void OnControllerjump(InputAction.CallbackContext context);
+        void OnControllerdash(InputAction.CallbackContext context);
+        void OnControllergravityswitch(InputAction.CallbackContext context);
+        void OnControllerwhip(InputAction.CallbackContext context);
+        void OnControllermemorie(InputAction.CallbackContext context);
+        void OnControllerscoutmode(InputAction.CallbackContext context);
+        void OnControllerpause(InputAction.CallbackContext context);
+        void OnControlleresc(InputAction.CallbackContext context);
     }
     public interface IMenuActions
     {
