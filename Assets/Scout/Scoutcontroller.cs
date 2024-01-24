@@ -5,7 +5,7 @@ using Cinemachine;
 
 public class Scoutcontroller : MonoBehaviour
 {
-    private Controlls controlls;
+    private Controlls controls;
     [SerializeField] private GameObject scoutobj;
     [SerializeField] private GameObject menu;
 
@@ -17,11 +17,11 @@ public class Scoutcontroller : MonoBehaviour
 
     private void Awake()
     {
-        controlls = Keybindinputmanager.inputActions;
+        controls = Keybindinputmanager.inputActions;
     }
     void Update()
     {
-        if (controlls.Player.Scoutmode.WasPerformedThisFrame())
+        if (controls.Player.Scoutmode.WasPerformedThisFrame() || controls.Player.Controllerscoutmode.WasPerformedThisFrame())
         {
             if(menu.activeSelf == false)
             {
@@ -38,7 +38,7 @@ public class Scoutcontroller : MonoBehaviour
                 else if (scoutobj.activeSelf == true) StartCoroutine("closescoutmode");
             }
         }
-        if (controlls.Menu.Openmenu.WasPerformedThisFrame())
+        if (controls.Menu.Openmenu.WasPerformedThisFrame())
         {
             if (menu.activeSelf == false && scoutobj.activeSelf == true) StartCoroutine("closescoutmode");
         }

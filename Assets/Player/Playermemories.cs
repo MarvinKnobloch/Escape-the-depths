@@ -7,7 +7,7 @@ public class Playermemories
     public Playerstatemachine psm;
     public void playerplacememory()
     {
-        if (psm.controlls.Player.Memorie.WasPerformedThisFrame() || psm.controlls.Player.Controllermemorie.WasPerformedThisFrame())
+        if (psm.controls.Player.Memorie.WasPerformedThisFrame() || psm.controls.Player.Controllermemorie.WasPerformedThisFrame())
         {
             if (Globalcalls.dontreadplayerinputs == false)
             {

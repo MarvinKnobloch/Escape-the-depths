@@ -16,6 +16,7 @@ public class Keybindinputmanager : MonoBehaviour
     public static event Action disablecantclicklayer;
 
     public static Text keyrebindtext;
+
     private void Awake()
     {
         if (inputActions == null)

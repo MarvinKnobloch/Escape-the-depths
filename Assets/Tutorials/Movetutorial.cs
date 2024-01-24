@@ -33,8 +33,8 @@ public class Movetutorial : MonoBehaviour
     {
         lefthotkey = controls.Player.Move.GetBindingDisplayString(3);
         righthotkey = controls.Player.Move.GetBindingDisplayString(4);
-        jumphotkey = controls.Player.Jump.GetBindingDisplayString();
-        menuhotkey = controls.Menu.Openmenu.GetBindingDisplayString();
+        jumphotkey = controls.Player.Jump.GetBindingDisplayString(0);
+        menuhotkey = controls.Menu.Openmenu.GetBindingDisplayString(0);
         movetutorialtext.text = "Use <color=green>" + lefthotkey + "</color> and <color=green>" + righthotkey + "</color> to move.\n" +
                                 "Press <color=green>" + jumphotkey + "</color> to jump.\n" + 
                                 "Hotkeys can be changed in the menu(<color=green>" + menuhotkey + "</color>) -> Settings"; 

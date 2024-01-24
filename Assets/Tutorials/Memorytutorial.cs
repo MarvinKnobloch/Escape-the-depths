@@ -33,7 +33,7 @@ public class Memorytutorial : MonoBehaviour
         //                    "This memory will remain a few seconds or until you use this ability again which will teleport you back to the position of the memory.\n" + 
         //                    "The number on the bottom left will display how often you can use this ability.";
 
-        memoryhotkey = controls.Player.Memorie.GetBindingDisplayString();
+        memoryhotkey = controls.Player.Memorie.GetBindingDisplayString(0);
         tutorialtext.text = "Step into the yellow light to gain the memory ability.\n" +
                             "\nPress <color=green>" + memoryhotkey + "</color> to use it which will create a memory of your character.\n" +
                             "This memory will remain a few seconds or until you use this ability again which will teleport you back to the position of the memory.\n" +

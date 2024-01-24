@@ -28,7 +28,7 @@ public class Scouttutorial : MonoBehaviour
 
     private void hotkeysandtextupdate()
     {
-        scouthotkey = controls.Player.Scoutmode.GetBindingDisplayString();
+        scouthotkey = controls.Player.Scoutmode.GetBindingDisplayString(0);
         tutorialtext.text = "Press <color=green>" + scouthotkey + "</color> to move the camera freely to see what's ahead.";
     }
 }

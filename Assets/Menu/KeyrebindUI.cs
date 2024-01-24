@@ -38,7 +38,6 @@ public class KeyrebindUI : MonoBehaviour
         resetbutton.onClick.AddListener(() => resetkeybinding());                                           // und resetbutton
         Keybindinputmanager.keyrebindfinished += updatebindingUI;
         Keybindinputmanager.keyrebindcanceled += updatebindingUI;
-        Keybindinputmanager.disablecantclicklayer += cantclicklayerdisable;
 
         if (inputActionReference != null)
         {
@@ -51,7 +50,6 @@ public class KeyrebindUI : MonoBehaviour
     {
         Keybindinputmanager.keyrebindfinished -= updatebindingUI;
         Keybindinputmanager.keyrebindcanceled -= updatebindingUI;
-        Keybindinputmanager.disablecantclicklayer -= cantclicklayerdisable;
     }
 
     private void OnValidate()                                                           // Wird auﬂerhalb vom Playmodusgecalled, immer dann wenn ein Wert im Inspector ge‰ndert wird
@@ -93,10 +91,6 @@ public class KeyrebindUI : MonoBehaviour
                 Keybindtext.text = inputActionReference.action.GetBindingDisplayString(bindingindex);
             }
         }
-    }
-    private void cantclicklayerdisable()
-    {
-        cantclicklayer.SetActive(false);
     }
     public void changekeybinding()
     {

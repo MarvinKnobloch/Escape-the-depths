@@ -10,6 +10,7 @@ public class Scoutmode : MonoBehaviour
 
     private Rigidbody2D rb;
     private InputAction movehotkey;
+    private InputAction controllermovehotkey;
     public Vector2 move;
     private Vector2 scoutvelocity;
 
@@ -25,11 +26,12 @@ public class Scoutmode : MonoBehaviour
     {
         controls.Enable();
         movehotkey = controls.Player.Move;
+        controllermovehotkey = controls.Menu.Controllermove;
     }
 
     void Update()
     {
-        if (controls.Player.Move.WasPerformedThisFrame())
+        if (controls.Player.Move.WasPerformedThisFrame() || controls.Menu.Controllermove.WasPerformedThisFrame())
         { 
             if(move.x == 0)
             {
@@ -48,5 +50,6 @@ public class Scoutmode : MonoBehaviour
     private void moveinput()
     {
         move = movehotkey.ReadValue<Vector2>();
+        if (move == Vector2.zero) move = controllermovehotkey.ReadValue<Vector2>();
     }
 }

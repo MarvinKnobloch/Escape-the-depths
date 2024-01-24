@@ -37,7 +37,7 @@ public class Playerwhip
         if (Hookobject.hookobjects.Count > 0 && psm.inhookstate == false)
         {
             hooktargetupdate();
-            if (psm.controlls.Player.Whip.WasPerformedThisFrame() || psm.controlls.Player.Controllerwhip.WasPerformedThisFrame())
+            if (psm.controls.Player.Whip.WasPerformedThisFrame() || psm.controls.Player.Controllerwhip.WasPerformedThisFrame())
             {
                 if (Globalcalls.dontreadplayerinputs == false)
                 {

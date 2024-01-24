@@ -68,7 +68,7 @@ public class Playermovement
 
     public void playergroundjump()
     {
-        if (psm.controlls.Player.Jump.WasPerformedThisFrame() || psm.controlls.Player.Controllerjump.WasPerformedThisFrame())
+        if (psm.controls.Player.Jump.WasPerformedThisFrame() || psm.controls.Player.Controllerjump.WasPerformedThisFrame())
         {
             if (psm.canjump == true && Globalcalls.dontreadplayerinputs == false)
             {
@@ -84,7 +84,7 @@ public class Playermovement
     }
     public void playerdoublejump()
     {
-        if (psm.controlls.Player.Jump.WasPerformedThisFrame() || psm.controlls.Player.Controllerjump.WasPerformedThisFrame())
+        if (psm.controls.Player.Jump.WasPerformedThisFrame() || psm.controls.Player.Controllerjump.WasPerformedThisFrame())
         {
             if (psm.doublejump == true && Globalcalls.dontreadplayerinputs == false)
             {
@@ -103,7 +103,7 @@ public class Playermovement
     {
         if(psm.isjumping == true)
         {
-            if (psm.controlls.Player.Jump.WasReleasedThisFrame() && Globalcalls.dontreadplayerinputs == false)
+            if (psm.controls.Player.Jump.WasReleasedThisFrame() && Globalcalls.dontreadplayerinputs == false)
             {
                 psm.isjumping = false;
                 if (psm.gravityswitchactiv == false)
@@ -150,7 +150,7 @@ public class Playermovement
 
     public void playerdash()
     {
-        if(psm.controlls.Player.Dash.WasPerformedThisFrame() || psm.controlls.Player.Controllerdash.WasPerformedThisFrame())
+        if(psm.controls.Player.Dash.WasPerformedThisFrame() || psm.controls.Player.Controllerdash.WasPerformedThisFrame())
         {
             if (Globalcalls.candash == true && Globalcalls.dontreadplayerinputs == false)
             {
@@ -161,7 +161,7 @@ public class Playermovement
     }
     public void playerairdash()
     {
-        if (psm.controlls.Player.Dash.WasPerformedThisFrame() || psm.controlls.Player.Controllerdash.WasPerformedThisFrame())
+        if (psm.controls.Player.Dash.WasPerformedThisFrame() || psm.controls.Player.Controllerdash.WasPerformedThisFrame())
         {
             if (psm.currentdashcount < psm.maxdashcount && Globalcalls.candash == true && Globalcalls.dontreadplayerinputs == false)
             {

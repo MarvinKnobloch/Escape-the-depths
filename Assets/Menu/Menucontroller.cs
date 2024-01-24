@@ -6,10 +6,12 @@ using UnityEngine.Audio;
 
 public class Menucontroller : MonoBehaviour
 {
-    private Controlls controlls;
+    private Controlls controls;
 
     [SerializeField] private GameObject menu;
     [SerializeField] private GameObject menuoverview;
+    [SerializeField] private GameObject activatecontrollermenucursor;
+    [SerializeField] private GameObject controllermenucursor;
     [SerializeField] private GameObject newgameconfirm;
     [SerializeField] private GameObject pausewindow;
     [SerializeField] private GameObject scoutobj;
@@ -28,18 +30,18 @@ public class Menucontroller : MonoBehaviour
 
     private void Awake()
     {
-        controlls = Keybindinputmanager.inputActions;
+        controls = Keybindinputmanager.inputActions;
         normaltimescale = Time.timeScale;
         normalfixeddeltatime = Time.fixedDeltaTime;
         Globalcalls.gameispaused = false;
     }
     private void OnEnable()
     {
-        controlls.Enable();
+        controls.Enable();
     }
     private void Update()
     {
-        if (controlls.Menu.Openmenu.WasPerformedThisFrame() && Globalcalls.gameispaused == false && scoutobj.activeSelf == false)
+        if (controls.Menu.Openmenu.WasPerformedThisFrame() && Globalcalls.gameispaused == false && scoutobj.activeSelf == false)
         {
             Globalcalls.gameispaused = true;
             Time.timeScale = 0f;
@@ -47,33 +49,35 @@ public class Menucontroller : MonoBehaviour
             newgameconfirm.SetActive(false);
             menu.SetActive(true);
             menuoverview.SetActive(true);
+            activatecontrollermenucursor.SetActive(true);
             menusoundcontroller.playmenusound1();
         }
-        else if(controlls.Menu.Openmenu.WasPerformedThisFrame() && newgameconfirm.activeSelf == true)
+        else if(controls.Menu.Openmenu.WasPerformedThisFrame() && newgameconfirm.activeSelf == true)
         {
             newgameconfirm.SetActive(false);
         }
-        else if(controlls.Menu.Openmenu.WasPerformedThisFrame() && menuoverview.activeSelf == true && menu.activeSelf == true)     //menu.activeSelf == true weil menuoverview als aktiv gilt selbst wenn der parent disabled ist
+        else if(controls.Menu.Openmenu.WasPerformedThisFrame() && menuoverview.activeSelf == true && menu.activeSelf == true)     //menu.activeSelf == true weil menuoverview als aktiv gilt selbst wenn der parent disabled ist
         {
             closemenu();
         }
-        if(controlls.Player.Pause.WasPerformedThisFrame() && Globalcalls.gameispaused == false && scoutobj.activeSelf == false)
+        if (controls.Player.Pause.WasPerformedThisFrame() || controls.Player.Controllerpause.WasPerformedThisFrame())
         {
-            Globalcalls.gameispaused = true;
-            Time.timeScale = 0f;
-            Time.fixedDeltaTime = 0f;
-            pausewindow.SetActive(true);
+            if (Globalcalls.gameispaused == false && scoutobj.activeSelf == false)
+            {
+                Globalcalls.gameispaused = true;
+                Time.timeScale = 0f;
+                Time.fixedDeltaTime = 0f;
+                pausewindow.SetActive(true);
 
-            if (PlayerPrefs.GetFloat(gamevalue + "ismuted") == 0) audiomixer.SetFloat(gamevalue, -80);
-            //StartCoroutine("pauseaudio");
+                if (PlayerPrefs.GetFloat(gamevalue + "ismuted") == 0) audiomixer.SetFloat(gamevalue, -80);
+                //StartCoroutine("pauseaudio");
+            }
+            else if (pausewindow.activeSelf == true) StartCoroutine("unpausegame");
         }
-        else if(controlls.Player.Pause.WasPerformedThisFrame() && pausewindow.activeSelf == true || controlls.Menu.Openmenu.WasPerformedThisFrame() && pausewindow.activeSelf == true)
-        {
-            //audioSource.UnPause();
-            StartCoroutine("unpausegame");
-        }
+        if(controls.Menu.Openmenu.WasPerformedThisFrame() && pausewindow.activeSelf == true) StartCoroutine("unpausegame");
+
 #if UNITY_EDITOR
-        if (controlls.Menu.Screenshot.WasPerformedThisFrame())
+        if (controls.Menu.Screenshot.WasPerformedThisFrame())
         {
             
             string date = DateTime.Now.ToString("yyyy/MM/dd HH:mm:ss");
@@ -119,6 +123,7 @@ public class Menucontroller : MonoBehaviour
     public void closemenu()
     {
         tutorialupdate?.Invoke();
+        controllermenucursor.SetActive(false);
         menuoverview.SetActive(false);
         Globalcalls.gameispaused = false;
         Time.timeScale = normaltimescale;

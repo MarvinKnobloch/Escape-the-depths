@@ -7,7 +7,7 @@ using Cinemachine;
 
 public class Playerstatemachine : MonoBehaviour
 {
-    [NonSerialized] public Controlls controlls;
+    [NonSerialized] public Controlls controls;
     public CinemachineVirtualCamera cinemachineVirtualCamera;
     public CinemachineConfiner cinemachineConfiner;
 
@@ -129,9 +129,9 @@ public class Playerstatemachine : MonoBehaviour
     private void Awake()
     {
         rb = GetComponent<Rigidbody2D>();
-        controlls = Keybindinputmanager.inputActions;
-        movehotkey = controlls.Player.Move;
-        controllermovehotkey = controlls.Player.Controllermove;
+        controls = Keybindinputmanager.inputActions;
+        movehotkey = controls.Player.Move;
+        controllermovehotkey = controls.Menu.Controllermove;
         Globalcalls.dontreadplayerinputs = false;
 
         saveandloadgame = GetComponent<Saveandloadgame>();
@@ -156,7 +156,7 @@ public class Playerstatemachine : MonoBehaviour
     }
     private void OnEnable()
     {
-        controlls.Enable();
+        controls.Enable();
     }
     private void FixedUpdate()
     {
@@ -200,7 +200,7 @@ public class Playerstatemachine : MonoBehaviour
             if (Globalcalls.dontreadplayerinputs == false) 
             {
                 move.x = movehotkey.ReadValue<Vector2>().x;
-                move.x = controllermovehotkey.ReadValue<Vector2>().x;
+                if(move.x == 0) move.x = controllermovehotkey.ReadValue<Vector2>().x;
             }
 
             else move = Vector2.zero;
