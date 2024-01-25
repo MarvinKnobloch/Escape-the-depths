@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using System;
 using UnityEngine.Audio;
+using UnityEngine.InputSystem;
 
 public class Menucontroller : MonoBehaviour
 {
@@ -27,7 +28,6 @@ public class Menucontroller : MonoBehaviour
 
     [SerializeField] private string screenshotpath;
 
-
     private void Awake()
     {
         controls = Keybindinputmanager.inputActions;
@@ -41,26 +41,29 @@ public class Menucontroller : MonoBehaviour
     }
     private void Update()
     {
-        if (controls.Menu.Openmenu.WasPerformedThisFrame() && Globalcalls.gameispaused == false && scoutobj.activeSelf == false)
+        if (controls.Menu.Openmenu.WasPerformedThisFrame() || Input.GetButtonDown("Start"))
         {
-            Globalcalls.gameispaused = true;
-            Time.timeScale = 0f;
-            Time.fixedDeltaTime = 0f;
-            newgameconfirm.SetActive(false);
-            menu.SetActive(true);
-            menuoverview.SetActive(true);
-            activatecontrollermenucursor.SetActive(true);
-            menusoundcontroller.playmenusound1();
+            if (Globalcalls.gameispaused == false && scoutobj.activeSelf == false)
+            {
+                Globalcalls.gameispaused = true;
+                Time.timeScale = 0f;
+                Time.fixedDeltaTime = 0f;
+                newgameconfirm.SetActive(false);
+                menu.SetActive(true);
+                menuoverview.SetActive(true);
+                activatecontrollermenucursor.SetActive(true);
+                menusoundcontroller.playmenusound1();
+            }
+            else if (newgameconfirm.activeSelf == true)
+            {
+                newgameconfirm.SetActive(false);
+            }
+            else if (menuoverview.activeSelf == true && menu.activeSelf == true)     //menu.activeSelf == true weil menuoverview als aktiv gilt selbst wenn der parent disabled ist
+            {
+                closemenu();
+            }
         }
-        else if(controls.Menu.Openmenu.WasPerformedThisFrame() && newgameconfirm.activeSelf == true)
-        {
-            newgameconfirm.SetActive(false);
-        }
-        else if(controls.Menu.Openmenu.WasPerformedThisFrame() && menuoverview.activeSelf == true && menu.activeSelf == true)     //menu.activeSelf == true weil menuoverview als aktiv gilt selbst wenn der parent disabled ist
-        {
-            closemenu();
-        }
-        if (controls.Player.Pause.WasPerformedThisFrame() || controls.Player.Controllerpause.WasPerformedThisFrame())
+        if (controls.Player.Pause.WasPerformedThisFrame() || Input.GetButtonDown("Pause")) //controls.Player.Controllerpause.WasPerformedThisFrame())
         {
             if (Globalcalls.gameispaused == false && scoutobj.activeSelf == false)
             {
@@ -74,7 +77,10 @@ public class Menucontroller : MonoBehaviour
             }
             else if (pausewindow.activeSelf == true) StartCoroutine("unpausegame");
         }
-        if(controls.Menu.Openmenu.WasPerformedThisFrame() && pausewindow.activeSelf == true) StartCoroutine("unpausegame");
+        if (controls.Menu.Openmenu.WasPerformedThisFrame() || Input.GetButtonDown("Start"))
+        {
+            if (pausewindow.activeSelf == true) StartCoroutine("unpausegame");
+        }
 
 #if UNITY_EDITOR
         if (controls.Menu.Screenshot.WasPerformedThisFrame())

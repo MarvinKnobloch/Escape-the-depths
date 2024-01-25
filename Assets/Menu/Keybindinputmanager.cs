@@ -53,7 +53,7 @@ public class Keybindinputmanager : MonoBehaviour
     {
         if (actiontorebind == null || bindingindex < 0)
             return;
-        textwhilerebind.color = Color.red;
+        textwhilerebind.color = Color.green;
         textwhilerebind.text = "Choose button";                          // "Press a {actiontorebind.expectedControlType}";
         actiontorebind.Disable();                                       // der Hotkey wird disabled, wieso auch immer
 

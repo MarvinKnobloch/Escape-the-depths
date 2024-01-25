@@ -31,8 +31,8 @@ public class Scoutmode : MonoBehaviour
 
     void Update()
     {
-        if (controls.Player.Move.WasPerformedThisFrame() || controls.Menu.Controllermove.WasPerformedThisFrame())
-        { 
+        //if (controls.Player.Move.WasPerformedThisFrame()) //controls.Menu.Controllermove.WasPerformedThisFrame())
+        //{ 
             if(move.x == 0)
             {
                 transform.position = new Vector3(maincam.transform.position.x, transform.position.y, 0);
@@ -40,7 +40,7 @@ public class Scoutmode : MonoBehaviour
             if(move.y == 0)
             {
                 transform.position = new Vector3(transform.position.x, maincam.transform.position.y, 0);
-            }
+            //}
         }
 
         moveinput();
@@ -50,6 +50,7 @@ public class Scoutmode : MonoBehaviour
     private void moveinput()
     {
         move = movehotkey.ReadValue<Vector2>();
-        if (move == Vector2.zero) move = controllermovehotkey.ReadValue<Vector2>();
+        //if (move == Vector2.zero) move = controllermovehotkey.ReadValue<Vector2>();
+        if (move == Vector2.zero) move = new Vector2(Input.GetAxis("Horizontal"), Input.GetAxis("Vertical"));
     }
 }

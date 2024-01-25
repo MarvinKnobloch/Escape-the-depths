@@ -21,7 +21,7 @@ public class Scoutcontroller : MonoBehaviour
     }
     void Update()
     {
-        if (controls.Player.Scoutmode.WasPerformedThisFrame() || controls.Player.Controllerscoutmode.WasPerformedThisFrame())
+        if (controls.Player.Scoutmode.WasPerformedThisFrame() || Input.GetButtonDown("Scout")) //controls.Player.Controllerscoutmode.WasPerformedThisFrame())
         {
             if(menu.activeSelf == false)
             {
