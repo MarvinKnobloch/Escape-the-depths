@@ -399,6 +399,17 @@
                 },
                 {
                     "name": "",
+                    "id": "9fcdb26d-f6b0-4dcd-8916-451e2e2fc273",
+                    "path": "<HID::mayflash limited MAYFLASH GameCube Controller Adapter>/button10",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "Openmenu",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
                     "id": "2da641d1-f315-4ff4-98d3-42b9ffc0561c",
                     "path": "<Keyboard>/f1",
                     "interactions": "",

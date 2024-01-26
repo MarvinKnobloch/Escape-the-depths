@@ -200,13 +200,13 @@ public class Playerstatemachine : MonoBehaviour
             if (Globalcalls.dontreadplayerinputs == false) 
             {
                 move.x = movehotkey.ReadValue<Vector2>().x;
-                //if (move.x == 0) move.x = controllermovehotkey.ReadValue<Vector2>().x;
-                if (move.x == 0) 
-                { 
-                    move.x = Input.GetAxis("Horizontal");
-                    if (move.x > 0) move.x = 1;
-                    else if (move.x < 0) move.x = -1;
-                }
+                if (move.x == 0) move.x = controllermovehotkey.ReadValue<Vector2>().x;
+                //if (move.x == 0) 
+                //{ 
+                //    move.x = Input.GetAxis("Horizontal");
+                //    if (move.x > 0) move.x = 1;
+                //    else if (move.x < 0) move.x = -1;
+                //}
             }
 
             else move = Vector2.zero;

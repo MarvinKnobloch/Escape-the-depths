@@ -50,7 +50,7 @@ public class Scoutmode : MonoBehaviour
     private void moveinput()
     {
         move = movehotkey.ReadValue<Vector2>();
-        //if (move == Vector2.zero) move = controllermovehotkey.ReadValue<Vector2>();
-        if (move == Vector2.zero) move = new Vector2(Input.GetAxis("Horizontal"), Input.GetAxis("Vertical"));
+        if (move == Vector2.zero) move = controllermovehotkey.ReadValue<Vector2>();
+        //if (move == Vector2.zero) move = new Vector2(Input.GetAxis("Horizontal"), Input.GetAxis("Vertical"));
     }
 }

@@ -41,7 +41,7 @@ public class Menucontroller : MonoBehaviour
     }
     private void Update()
     {
-        if (controls.Menu.Openmenu.WasPerformedThisFrame() || Input.GetButtonDown("Start"))
+        if (controls.Menu.Openmenu.WasPerformedThisFrame())                       // || Input.GetButtonDown("Start"))
         {
             if (Globalcalls.gameispaused == false && scoutobj.activeSelf == false)
             {
@@ -63,7 +63,7 @@ public class Menucontroller : MonoBehaviour
                 closemenu();
             }
         }
-        if (controls.Player.Pause.WasPerformedThisFrame() || Input.GetButtonDown("Pause")) //controls.Player.Controllerpause.WasPerformedThisFrame())
+        if (controls.Player.Pause.WasPerformedThisFrame() || controls.Player.Controllerpause.WasPerformedThisFrame()) //Input.GetButtonDown("Pause")) //controls.Player.Controllerpause.WasPerformedThisFrame())
         {
             if (Globalcalls.gameispaused == false && scoutobj.activeSelf == false)
             {
@@ -77,7 +77,7 @@ public class Menucontroller : MonoBehaviour
             }
             else if (pausewindow.activeSelf == true) StartCoroutine("unpausegame");
         }
-        if (controls.Menu.Openmenu.WasPerformedThisFrame() || Input.GetButtonDown("Start"))
+        if (controls.Menu.Openmenu.WasPerformedThisFrame())                          // || Input.GetButtonDown("Start"))
         {
             if (pausewindow.activeSelf == true) StartCoroutine("unpausegame");
         }
