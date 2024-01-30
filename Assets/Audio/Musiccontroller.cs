@@ -10,25 +10,36 @@ public class Musiccontroller : MonoBehaviour
 
     [NonSerialized] public AudioClip currentsong;
 
+    private List<AudioClip> songlist = new List<AudioClip>();
+    private int currentsongnumber;
+
     public Musicclips[] clips;
 
     private void Awake()
     {
         audiosource = GetComponent<AudioSource>();
-        audiosource.volume = 0f;       
+        audiosource.volume = 0f;
     }
-    public void musiconstart(AudioClip song)
+    public void musiconstart(AudioClip[] song)
     {
+        StopAllCoroutines();
+        songlist.Clear();
+        currentsongnumber = 0;
+        for (int i = 0; i < song.Length; i++)
+        {
+            songlist.Add(song[i]);
+        }
         for (int i = 0; i < clips.Length; i++)
         {
-            if (clips[i].song == song)
+            if (clips[i].song == song[0])
             {
-                audiosource.clip = song;
-                //audiosource.time = 440f;
+                audiosource.clip = song[0];
+                //audiosource.time = 150f;
                 audiosource.Play();
                 targetvolume = clips[i].volume;
 
                 StartCoroutine(fadeinvolume(3, 0));
+                StartCoroutine("playnextsong");
                 break;
             }
         }
@@ -58,6 +69,7 @@ public class Musiccontroller : MonoBehaviour
             audiosource.time = cliptime;
             audiosource.Play();
             StartCoroutine(fadeinvolume(fadeinspeed, 0));
+            StartCoroutine("playnextsong");
         }
         yield break;
     }
@@ -75,13 +87,41 @@ public class Musiccontroller : MonoBehaviour
         }
         yield break;
     }
-    public void choosesong(AudioClip song)
+    public IEnumerator playnextsong()
     {
+        Debug.Log(audiosource.clip.length);
+        yield return new WaitForSeconds(audiosource.clip.length - 3f);
+        if (currentsongnumber >= songlist.Count -1)
+        {
+            currentsongnumber = 0;
+        }
+        else currentsongnumber++;
+
         for (int i = 0; i < clips.Length; i++)
         {
-            if(clips[i].song == song)
+            if (clips[i].song == songlist[currentsongnumber])
             {
-                startfadeout(song, 0, 2.5f, 3, clips[i].volume);
+                startfadeout(songlist[currentsongnumber], 0, 3f, 3, clips[i].volume);
+                break;
+            }
+        }
+
+    }
+    public void choosesong(AudioClip[] song)
+    {
+        StopAllCoroutines();
+        songlist.Clear();
+        currentsongnumber = 0;
+        for (int i = 0; i < song.Length; i++)
+        {
+            songlist.Add(song[i]);
+        }
+
+        for (int i = 0; i < clips.Length; i++)
+        {
+            if(clips[i].song == song[0])
+            {
+                startfadeout(song[0], 0, 3f, 3, clips[i].volume);
                 break;
             }
         }

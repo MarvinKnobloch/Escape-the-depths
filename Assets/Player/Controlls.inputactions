@@ -383,6 +383,15 @@
                     "processors": "",
                     "interactions": "",
                     "initialStateCheck": true
+                },
+                {
+                    "name": "Fps counter",
+                    "type": "Button",
+                    "id": "c87536c0-132b-4c78-9fa6-e0ad7ce8c8d3",
+                    "expectedControlType": "Button",
+                    "processors": "",
+                    "interactions": "",
+                    "initialStateCheck": false
                 }
             ],
             "bindings": [
@@ -473,6 +482,17 @@
                     "action": "Controllermove",
                     "isComposite": false,
                     "isPartOfComposite": true
+                },
+                {
+                    "name": "",
+                    "id": "9a120ad0-9031-40ef-9547-a1c773051084",
+                    "path": "<Keyboard>/f8",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "Fps counter",
+                    "isComposite": false,
+                    "isPartOfComposite": false
                 }
             ]
         },

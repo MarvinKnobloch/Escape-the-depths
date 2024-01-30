@@ -30,18 +30,18 @@ public class Cameravertical : MonoBehaviour
             {
                 cinemachineConfiner.m_BoundingShape2D = leftcollider;
                 cinemachineVirtualCamera.m_Lens.OrthographicSize = leftcameradistance;
-                if (leftcollider.gameObject.GetComponent<Sectionmusic>().song != musiccontroller.currentsong)
+                if (leftcollider.gameObject.GetComponent<Sectionmusic>().songs[0] != musiccontroller.currentsong)
                 {
-                    musiccontroller.choosesong(leftcollider.gameObject.GetComponent<Sectionmusic>().song);
+                    musiccontroller.choosesong(leftcollider.gameObject.GetComponent<Sectionmusic>().songs);
                 }
             }
             else 
             {
                 cinemachineConfiner.m_BoundingShape2D = rightcollider;
                 cinemachineVirtualCamera.m_Lens.OrthographicSize = rightcameradistance;
-                if (rightcollider.gameObject.GetComponent<Sectionmusic>().song != musiccontroller.currentsong)
+                if (rightcollider.gameObject.GetComponent<Sectionmusic>().songs[0] != musiccontroller.currentsong)
                 {
-                    musiccontroller.choosesong(rightcollider.gameObject.GetComponent<Sectionmusic>().song);
+                    musiccontroller.choosesong(rightcollider.gameObject.GetComponent<Sectionmusic>().songs);
                 }
             }          
         }

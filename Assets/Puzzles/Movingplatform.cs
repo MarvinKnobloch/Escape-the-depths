@@ -21,6 +21,7 @@ public class Movingplatform : MonoBehaviour
     [NonSerialized] public Vector3 oldposi;
 
     public bool moveonenter;
+    public bool moveonenterdontstop;
     [SerializeField] private bool fastreturn;
     [SerializeField] private float fasttraveltime;
 
@@ -103,8 +104,16 @@ public class Movingplatform : MonoBehaviour
             }
             else
             {
-                state = State.dontmove;
-                movetime = 0;
+                if(moveonenterdontstop == false)
+                {
+                    state = State.dontmove;
+                    movetime = 0;
+                }
+                else
+                {
+                    state = State.movetoend;
+                    movetime = 0;
+                }
             }
         }
     }

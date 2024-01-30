@@ -356,9 +356,9 @@ public class Playerstatemachine : MonoBehaviour
         rb.velocity = Vector2.zero;
         state = States.Air;
 
-        if (Globalcalls.boundscolliderobj.GetComponent<Sectionmusic>().song != musiccontroller.currentsong)
+        if (Globalcalls.boundscolliderobj.GetComponent<Sectionmusic>().songs[0] != musiccontroller.currentsong)
         {
-            musiccontroller.choosesong(Globalcalls.boundscolliderobj.GetComponent<Sectionmusic>().song);
+            musiccontroller.choosesong(Globalcalls.boundscolliderobj.GetComponent<Sectionmusic>().songs);
         }
     }
     public void endmemorytimer()

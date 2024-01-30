@@ -34,7 +34,7 @@ public class Loadgamecontroller : MonoBehaviour
                 Globalcalls.boundscolliderobj = sections[Globalcalls.currentsection];
 
                 cinemachineConfiner.m_BoundingShape2D = sections[Globalcalls.currentsection].GetComponent<PolygonCollider2D>();
-                musiccontroller.musiconstart(sections[Globalcalls.currentsection].GetComponent<Sectionmusic>().song);
+                musiccontroller.musiconstart(sections[Globalcalls.currentsection].GetComponent<Sectionmusic>().songs);
                 if (Globalcalls.currentsection > 1) Globalcalls.candash = true;
                 else Globalcalls.candash = false;
 
@@ -63,7 +63,7 @@ public class Loadgamecontroller : MonoBehaviour
                     cinemachineConfiner.m_BoundingShape2D = sections[Globalcalls.currentsection].GetComponent<PolygonCollider2D>();
                     Globalcalls.boundscolliderobj = sections[Globalcalls.currentsection];
                     cinemachineVirtualCamera.m_Lens.OrthographicSize = Globalcalls.savecameradistance;
-                    musiccontroller.musiconstart(sections[Globalcalls.currentsection].GetComponent<Sectionmusic>().song);
+                    musiccontroller.musiconstart(sections[Globalcalls.currentsection].GetComponent<Sectionmusic>().songs);
                     gametimer.gametimeupdate();
                 }
                 else
@@ -80,7 +80,7 @@ public class Loadgamecontroller : MonoBehaviour
                 Globalcalls.boundscolliderobj = sections[Globalcalls.currentsection];
 
                 cinemachineConfiner.m_BoundingShape2D = sections[Globalcalls.currentsection].GetComponent<PolygonCollider2D>();
-                musiccontroller.musiconstart(sections[Globalcalls.currentsection].GetComponent<Sectionmusic>().song);
+                musiccontroller.musiconstart(sections[Globalcalls.currentsection].GetComponent<Sectionmusic>().songs);
                 if (Globalcalls.currentsection > 1) Globalcalls.candash = true;
                 else Globalcalls.candash = false;
 
@@ -90,7 +90,7 @@ public class Loadgamecontroller : MonoBehaviour
             else
             {
                 Globalcalls.savecameradistance = (int)cinemachineVirtualCamera.m_Lens.OrthographicSize;
-                musiccontroller.musiconstart(sections[0].GetComponent<Sectionmusic>().song);
+                musiccontroller.musiconstart(sections[0].GetComponent<Sectionmusic>().songs);
             }
         }
         QualitySettings.vSyncCount = 1;
@@ -112,7 +112,7 @@ public class Loadgamecontroller : MonoBehaviour
 
         GetComponent<Menucontroller>().closemenu();
 
-        musiccontroller.choosesong(sections[0].GetComponent<Sectionmusic>().song);
+        musiccontroller.choosesong(sections[0].GetComponent<Sectionmusic>().songs);
 
         Globalcalls.currentgametime = 0;
         gametimer.gametimeupdate();
@@ -142,7 +142,7 @@ public class Loadgamecontroller : MonoBehaviour
 
         GetComponent<Menucontroller>().closemenu();
 
-        musiccontroller.choosesong(sections[0].GetComponent<Sectionmusic>().song);
+        musiccontroller.choosesong(sections[0].GetComponent<Sectionmusic>().songs);
 
         Globalcalls.currentgametime = 0;
         PlayerPrefs.SetInt("gametime", 0);

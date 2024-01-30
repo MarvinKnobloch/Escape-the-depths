@@ -4,5 +4,5 @@ using UnityEngine;
 
 public class Sectionmusic : MonoBehaviour
 {
-    public AudioClip song;
+    public AudioClip[] songs;
 }

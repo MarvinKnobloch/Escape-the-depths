@@ -405,6 +405,15 @@ public partial class @Controlls : IInputActionCollection2, IDisposable
                     ""processors"": """",
                     ""interactions"": """",
                     ""initialStateCheck"": true
+                },
+                {
+                    ""name"": ""Fps counter"",
+                    ""type"": ""Button"",
+                    ""id"": ""c87536c0-132b-4c78-9fa6-e0ad7ce8c8d3"",
+                    ""expectedControlType"": ""Button"",
+                    ""processors"": """",
+                    ""interactions"": """",
+                    ""initialStateCheck"": false
                 }
             ],
             ""bindings"": [
@@ -495,6 +504,17 @@ public partial class @Controlls : IInputActionCollection2, IDisposable
                     ""action"": ""Controllermove"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": true
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""9a120ad0-9031-40ef-9547-a1c773051084"",
+                    ""path"": ""<Keyboard>/f8"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""Fps counter"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
                 }
             ]
         },
@@ -1122,6 +1142,7 @@ public partial class @Controlls : IInputActionCollection2, IDisposable
         m_Menu_Openmenu = m_Menu.FindAction("Openmenu", throwIfNotFound: true);
         m_Menu_Screenshot = m_Menu.FindAction("Screenshot", throwIfNotFound: true);
         m_Menu_Controllermove = m_Menu.FindAction("Controllermove", throwIfNotFound: true);
+        m_Menu_Fpscounter = m_Menu.FindAction("Fps counter", throwIfNotFound: true);
         // UI
         m_UI = asset.FindActionMap("UI", throwIfNotFound: true);
         m_UI_Navigate = m_UI.FindAction("Navigate", throwIfNotFound: true);
@@ -1341,6 +1362,7 @@ public partial class @Controlls : IInputActionCollection2, IDisposable
     private readonly InputAction m_Menu_Openmenu;
     private readonly InputAction m_Menu_Screenshot;
     private readonly InputAction m_Menu_Controllermove;
+    private readonly InputAction m_Menu_Fpscounter;
     public struct MenuActions
     {
         private @Controlls m_Wrapper;
@@ -1348,6 +1370,7 @@ public partial class @Controlls : IInputActionCollection2, IDisposable
         public InputAction @Openmenu => m_Wrapper.m_Menu_Openmenu;
         public InputAction @Screenshot => m_Wrapper.m_Menu_Screenshot;
         public InputAction @Controllermove => m_Wrapper.m_Menu_Controllermove;
+        public InputAction @Fpscounter => m_Wrapper.m_Menu_Fpscounter;
         public InputActionMap Get() { return m_Wrapper.m_Menu; }
         public void Enable() { Get().Enable(); }
         public void Disable() { Get().Disable(); }
@@ -1366,6 +1389,9 @@ public partial class @Controlls : IInputActionCollection2, IDisposable
                 @Controllermove.started -= m_Wrapper.m_MenuActionsCallbackInterface.OnControllermove;
                 @Controllermove.performed -= m_Wrapper.m_MenuActionsCallbackInterface.OnControllermove;
                 @Controllermove.canceled -= m_Wrapper.m_MenuActionsCallbackInterface.OnControllermove;
+                @Fpscounter.started -= m_Wrapper.m_MenuActionsCallbackInterface.OnFpscounter;
+                @Fpscounter.performed -= m_Wrapper.m_MenuActionsCallbackInterface.OnFpscounter;
+                @Fpscounter.canceled -= m_Wrapper.m_MenuActionsCallbackInterface.OnFpscounter;
             }
             m_Wrapper.m_MenuActionsCallbackInterface = instance;
             if (instance != null)
@@ -1379,6 +1405,9 @@ public partial class @Controlls : IInputActionCollection2, IDisposable
                 @Controllermove.started += instance.OnControllermove;
                 @Controllermove.performed += instance.OnControllermove;
                 @Controllermove.canceled += instance.OnControllermove;
+                @Fpscounter.started += instance.OnFpscounter;
+                @Fpscounter.performed += instance.OnFpscounter;
+                @Fpscounter.canceled += instance.OnFpscounter;
             }
         }
     }
@@ -1556,6 +1585,7 @@ public partial class @Controlls : IInputActionCollection2, IDisposable
         void OnOpenmenu(InputAction.CallbackContext context);
         void OnScreenshot(InputAction.CallbackContext context);
         void OnControllermove(InputAction.CallbackContext context);
+        void OnFpscounter(InputAction.CallbackContext context);
     }
     public interface IUIActions
     {
