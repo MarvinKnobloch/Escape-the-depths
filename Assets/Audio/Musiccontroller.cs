@@ -15,6 +15,12 @@ public class Musiccontroller : MonoBehaviour
 
     public Musicclips[] clips;
 
+    public float disabletimer;
+
+    private DateTime startdate;
+    private DateTime currentdate;
+    private float seconds;
+
     private void Awake()
     {
         audiosource = GetComponent<AudioSource>();
@@ -52,15 +58,29 @@ public class Musiccontroller : MonoBehaviour
     }
     public IEnumerator fadeoutvolume(AudioClip song, float cliptime, float fadeoutspeed, float fadeinspeed)
     {
+        //currentsong = song;
+        //float duration = fadeoutspeed;
+        //float currentTime = 0;
+        //float start = audiosource.volume;
+        //float targetVolume = 0;
+        //while (currentTime < duration)
+        //{
+        //    currentTime += Time.deltaTime;
+        //    audiosource.volume = Mathf.Lerp(start, targetVolume, currentTime / duration);
+        //    yield return null;
+        //}
         currentsong = song;
         float duration = fadeoutspeed;
-        float currentTime = 0;
         float start = audiosource.volume;
         float targetVolume = 0;
-        while (currentTime < duration)
+        startdate = DateTime.Now;
+        disabletimer = 0f;
+        while (disabletimer < duration)
         {
-            currentTime += Time.deltaTime;
-            audiosource.volume = Mathf.Lerp(start, targetVolume, currentTime / duration);
+            currentdate = DateTime.Now;
+            seconds = currentdate.Ticks - startdate.Ticks;
+            disabletimer = seconds * 0.0000001f;
+            audiosource.volume = Mathf.Lerp(start, targetVolume, disabletimer / duration);
             yield return null;
         }
         if (song != null)
@@ -75,22 +95,34 @@ public class Musiccontroller : MonoBehaviour
     }
     public IEnumerator fadeinvolume(float fadeinspeed, float startvolume)
     {
+        //currentsong = audiosource.clip;
+        //float duration = fadeinspeed;
+        //float currentTime = 0;
+        //float start = startvolume;
+        //while (currentTime < duration)
+        //{
+        //    currentTime += Time.deltaTime;
+        //    audiosource.volume = Mathf.Lerp(start, targetvolume, currentTime / duration);
+        //    yield return null;
+        //}
         currentsong = audiosource.clip;
         float duration = fadeinspeed;
-        float currentTime = 0;
         float start = startvolume;
-        while (currentTime < duration)
+        startdate = DateTime.Now;
+        disabletimer = 0f;
+        while (disabletimer < duration)
         {
-            currentTime += Time.deltaTime;
-            audiosource.volume = Mathf.Lerp(start, targetvolume, currentTime / duration);
+            currentdate = DateTime.Now;
+            seconds = currentdate.Ticks - startdate.Ticks;
+            disabletimer = seconds * 0.0000001f;
+            audiosource.volume = Mathf.Lerp(start, targetvolume, disabletimer / duration);
             yield return null;
         }
         yield break;
     }
     public IEnumerator playnextsong()
     {
-        Debug.Log(audiosource.clip.length);
-        yield return new WaitForSeconds(audiosource.clip.length - 3f);
+        yield return new WaitForSecondsRealtime(audiosource.clip.length - 2f);//(audiosource.clip.length - 3f);
         if (currentsongnumber >= songlist.Count -1)
         {
             currentsongnumber = 0;

@@ -98,6 +98,7 @@ public class Playerstatemachine : MonoBehaviour
     public Musiccontroller musiccontroller;
     public Playersounds playersounds;
     public Playersounds playermemorysound;
+    private int loadsong;
 
     //background //timer
     [SerializeField] private Movingbackground background;
@@ -200,13 +201,19 @@ public class Playerstatemachine : MonoBehaviour
             if (Globalcalls.dontreadplayerinputs == false) 
             {
                 move.x = movehotkey.ReadValue<Vector2>().x;
-                if (move.x == 0) move.x = controllermovehotkey.ReadValue<Vector2>().x;
-                //if (move.x == 0) 
-                //{ 
-                //    move.x = Input.GetAxis("Horizontal");
-                //    if (move.x > 0) move.x = 1;
-                //    else if (move.x < 0) move.x = -1;
-                //}
+                if(Globalcalls.webglbuild == false)
+                {
+                    if (move.x == 0) move.x = controllermovehotkey.ReadValue<Vector2>().x;
+                }
+                else
+                {
+                    if (move.x == 0)
+                    {
+                        move.x = Input.GetAxis("Horizontal");
+                        if (move.x > 0) move.x = 1;
+                        else if (move.x < 0) move.x = -1;
+                    }
+                }
             }
 
             else move = Vector2.zero;
@@ -356,10 +363,22 @@ public class Playerstatemachine : MonoBehaviour
         rb.velocity = Vector2.zero;
         state = States.Air;
 
-        if (Globalcalls.boundscolliderobj.GetComponent<Sectionmusic>().songs[0] != musiccontroller.currentsong)
+        loadsong = 0;
+        Sectionmusic sectionmusic = Globalcalls.boundscolliderobj.GetComponent<Sectionmusic>();
+        for (int i = 0; i < sectionmusic.songs.Length; i++)
         {
-            musiccontroller.choosesong(Globalcalls.boundscolliderobj.GetComponent<Sectionmusic>().songs);
+            if(sectionmusic.songs[i] == musiccontroller.currentsong)
+            {
+                loadsong++;
+                break;
+            }
         }
+        if(loadsong == 0) musiccontroller.choosesong(Globalcalls.boundscolliderobj.GetComponent<Sectionmusic>().songs);
+
+        //if (Globalcalls.boundscolliderobj.GetComponent<Sectionmusic>().songs[0] != musiccontroller.currentsong)
+        //{
+        //    musiccontroller.choosesong(Globalcalls.boundscolliderobj.GetComponent<Sectionmusic>().songs);
+        //}
     }
     public void endmemorytimer()
     {
@@ -414,6 +433,19 @@ public class Playerstatemachine : MonoBehaviour
         Hookobject.hookobjects.Clear();
     }
 
+    public bool checkcontroller(bool keyboardinput, bool webglcontrollerinput, bool normalcontroller)
+    {
+        if (Globalcalls.webglbuild == false)
+        {
+            if (keyboardinput == true || normalcontroller == true) return true;
+            else return false;
+        }
+        else
+        {
+            if (keyboardinput == true || webglcontrollerinput == true) return true;
+            else return false;
+        }
+    }
     public void savegame()
     {
         saveandloadgame.savegameonplayerenter();

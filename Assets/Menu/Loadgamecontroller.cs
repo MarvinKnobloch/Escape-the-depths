@@ -25,6 +25,7 @@ public class Loadgamecontroller : MonoBehaviour
     {
         if (Application.platform == RuntimePlatform.WebGLPlayer)
         {
+            Globalcalls.webglbuild = true;
             if (PlayerPrefs.GetInt("firstgamestart") == 1)               //wenn das game zum aller ersten mal gestartet wird und der wert noch nicht geändert worden ist
             {
                 Globalcalls.playeresetpoint = new Vector3(PlayerPrefs.GetFloat("playerxposi"), PlayerPrefs.GetFloat("playeryposi"), 0);
@@ -52,6 +53,7 @@ public class Loadgamecontroller : MonoBehaviour
         }
         else
         {
+            Globalcalls.webglbuild = false;
             if (loadgame == true)
             {
                 GetComponent<Saveandloadgame>().loadgamedate();
@@ -101,8 +103,6 @@ public class Loadgamecontroller : MonoBehaviour
         player.transform.position = new Vector3(-5, 1, 0);
         Globalcalls.playeresetpoint = player.transform.position;
 
-        player.GetComponent<Playerstatemachine>().resetplayer();
-
         cinemachineConfiner.m_BoundingShape2D = sections[0].GetComponent<PolygonCollider2D>();
         Globalcalls.boundscolliderobj = sections[0];
         Globalcalls.currentsection = 0;
@@ -119,6 +119,8 @@ public class Loadgamecontroller : MonoBehaviour
 
         Globalcalls.candash = false;
 
+        player.GetComponent<Playerstatemachine>().resetplayer();
+
         GetComponent<Saveandloadgame>().savegamedata();
     }
 
@@ -128,8 +130,6 @@ public class Loadgamecontroller : MonoBehaviour
         PlayerPrefs.SetFloat("playerxposi", player.transform.position.x);
         PlayerPrefs.SetFloat("playeryposi", player.transform.position.y);
         Globalcalls.playeresetpoint = player.transform.position;
-
-        player.GetComponent<Playerstatemachine>().resetplayer();
 
         cinemachineConfiner.m_BoundingShape2D = sections[0].GetComponent<PolygonCollider2D>();
         Globalcalls.boundscolliderobj = sections[0];
@@ -150,6 +150,8 @@ public class Loadgamecontroller : MonoBehaviour
 
         Globalcalls.candash = false;
         PlayerPrefs.SetInt("candash", 0);
+
+        player.GetComponent<Playerstatemachine>().resetplayer();
     }
     public void newgamebutton()
     {

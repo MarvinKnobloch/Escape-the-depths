@@ -65,10 +65,10 @@ public class Playermovement
     {
         if (psm.groundcheck == false) psm.switchtoairstate();
     }
-
     public void playergroundjump()
     {
-        if (psm.controls.Player.Jump.WasPerformedThisFrame() || psm.controls.Player.Controllerjump.WasPerformedThisFrame()) //Input.GetButtonDown("Jump")) //psm.controls.Player.Controllerjump.WasPerformedThisFrame())
+        if (psm.checkcontroller(psm.controls.Player.Jump.WasPerformedThisFrame(), Input.GetButtonDown("Jump"), psm.controls.Player.Controllerjump.WasPerformedThisFrame()) == true)
+        //if (psm.controls.Player.Jump.WasPerformedThisFrame() || psm.controls.Player.Controllerjump.WasPerformedThisFrame()) //Input.GetButtonDown("Jump")) //psm.controls.Player.Controllerjump.WasPerformedThisFrame())
         {
             if (psm.canjump == true && Globalcalls.dontreadplayerinputs == false)
             {
@@ -84,7 +84,8 @@ public class Playermovement
     }
     public void playerdoublejump()
     {
-        if (psm.controls.Player.Jump.WasPerformedThisFrame() || psm.controls.Player.Controllerjump.WasPerformedThisFrame()) //Input.GetButtonDown("Jump")) //psm.controls.Player.Controllerjump.WasPerformedThisFrame())
+        if (psm.checkcontroller(psm.controls.Player.Jump.WasPerformedThisFrame(), Input.GetButtonDown("Jump"), psm.controls.Player.Controllerjump.WasPerformedThisFrame()) == true)
+        //if (psm.controls.Player.Jump.WasPerformedThisFrame() || psm.controls.Player.Controllerjump.WasPerformedThisFrame()) //Input.GetButtonDown("Jump")) //psm.controls.Player.Controllerjump.WasPerformedThisFrame())
         {
             if (psm.doublejump == true && Globalcalls.dontreadplayerinputs == false)
             {
@@ -96,29 +97,6 @@ public class Playermovement
                 psm.jumptime = psm.maxshortjumptime;
                 psm.playersounds.playjump();
                 playerupwardsmomentum(psm.jumpheight);
-            }
-        }
-    }
-    public void controlljumpheight()
-    {
-        if(psm.isjumping == true)
-        {
-            if (psm.controls.Player.Jump.WasReleasedThisFrame() && Globalcalls.dontreadplayerinputs == false)
-            {
-                psm.isjumping = false;
-                if (psm.gravityswitchactiv == false)
-                {
-                    if (psm.rb.velocity.y > 0) psm.rb.velocity = new Vector2(psm.rb.velocity.x, psm.rb.velocity.y * 0.5f);
-                }
-                else
-                {
-                    if (psm.rb.velocity.y < 0) psm.rb.velocity = new Vector2(psm.rb.velocity.x, psm.rb.velocity.y * 0.5f);
-                }
-            }
-            psm.jumptime -= Time.deltaTime;
-            if (psm.jumptime < 0)
-            {
-                psm.isjumping = false;
             }
         }
     }
@@ -150,7 +128,8 @@ public class Playermovement
 
     public void playerdash()
     {
-        if(psm.controls.Player.Dash.WasPerformedThisFrame() || psm.controls.Player.Controllerdash.WasPerformedThisFrame()) //Input.GetButtonDown("Dash")) //psm.controls.Player.Controllerdash.WasPerformedThisFrame())
+        if (psm.checkcontroller(psm.controls.Player.Dash.WasPerformedThisFrame(), Input.GetButtonDown("Dash"), psm.controls.Player.Controllerdash.WasPerformedThisFrame()) == true)
+        //if (psm.controls.Player.Dash.WasPerformedThisFrame() || psm.controls.Player.Controllerdash.WasPerformedThisFrame()) //Input.GetButtonDown("Dash")) //psm.controls.Player.Controllerdash.WasPerformedThisFrame())
         {
             if (Globalcalls.candash == true && Globalcalls.dontreadplayerinputs == false)
             {
@@ -161,7 +140,8 @@ public class Playermovement
     }
     public void playerairdash()
     {
-        if (psm.controls.Player.Dash.WasPerformedThisFrame() || psm.controls.Player.Controllerdash.WasPerformedThisFrame()) //Input.GetButtonDown("Dash")) //psm.controls.Player.Controllerdash.WasPerformedThisFrame())
+        if (psm.checkcontroller(psm.controls.Player.Dash.WasPerformedThisFrame(), Input.GetButtonDown("Dash"), psm.controls.Player.Controllerdash.WasPerformedThisFrame()) == true)
+        //if (psm.controls.Player.Dash.WasPerformedThisFrame() || psm.controls.Player.Controllerdash.WasPerformedThisFrame()) //Input.GetButtonDown("Dash")) //psm.controls.Player.Controllerdash.WasPerformedThisFrame())
         {
             if (psm.currentdashcount < psm.maxdashcount && Globalcalls.candash == true && Globalcalls.dontreadplayerinputs == false)
             {
@@ -214,3 +194,36 @@ public class Playermovement
         psm.transform.Rotate(0, 180, 0);
     }
 }
+
+
+
+
+
+
+
+
+
+
+//public void controlljumpheight()
+//{
+//    if(psm.isjumping == true)
+//    {
+//        if (psm.controls.Player.Jump.WasReleasedThisFrame() && Globalcalls.dontreadplayerinputs == false)
+//        {
+//            psm.isjumping = false;
+//            if (psm.gravityswitchactiv == false)
+//            {
+//                if (psm.rb.velocity.y > 0) psm.rb.velocity = new Vector2(psm.rb.velocity.x, psm.rb.velocity.y * 0.5f);
+//            }
+//            else
+//            {
+//                if (psm.rb.velocity.y < 0) psm.rb.velocity = new Vector2(psm.rb.velocity.x, psm.rb.velocity.y * 0.5f);
+//            }
+//        }
+//        psm.jumptime -= Time.deltaTime;
+//        if (psm.jumptime < 0)
+//        {
+//            psm.isjumping = false;
+//        }
+//    }
+//}

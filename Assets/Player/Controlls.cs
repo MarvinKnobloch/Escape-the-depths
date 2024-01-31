@@ -299,7 +299,7 @@ public partial class @Controlls : IInputActionCollection2, IDisposable
                 {
                     ""name"": """",
                     ""id"": ""c79d1131-91c2-4234-a42f-397813269af2"",
-                    ""path"": ""<HID::mayflash limited MAYFLASH GameCube Controller Adapter>/button2"",
+                    ""path"": ""<XInputController>/buttonSouth"",
                     ""interactions"": """",
                     ""processors"": """",
                     ""groups"": """",
@@ -310,7 +310,7 @@ public partial class @Controlls : IInputActionCollection2, IDisposable
                 {
                     ""name"": """",
                     ""id"": ""bd4aad9b-7b0c-4e84-9caa-521030b60749"",
-                    ""path"": ""<HID::mayflash limited MAYFLASH GameCube Controller Adapter>/button3"",
+                    ""path"": ""<XInputController>/buttonWest"",
                     ""interactions"": """",
                     ""processors"": """",
                     ""groups"": """",
@@ -321,7 +321,7 @@ public partial class @Controlls : IInputActionCollection2, IDisposable
                 {
                     ""name"": """",
                     ""id"": ""144489e8-a713-4dd0-bd12-b1d9c7b002c6"",
-                    ""path"": ""<Joystick>/trigger"",
+                    ""path"": ""<XInputController>/buttonEast"",
                     ""interactions"": """",
                     ""processors"": """",
                     ""groups"": """",
@@ -332,7 +332,7 @@ public partial class @Controlls : IInputActionCollection2, IDisposable
                 {
                     ""name"": """",
                     ""id"": ""a2dbf164-710c-47e3-b238-cbb492890807"",
-                    ""path"": ""<HID::mayflash limited MAYFLASH GameCube Controller Adapter>/button4"",
+                    ""path"": ""<XInputController>/buttonNorth"",
                     ""interactions"": """",
                     ""processors"": """",
                     ""groups"": """",
@@ -343,7 +343,7 @@ public partial class @Controlls : IInputActionCollection2, IDisposable
                 {
                     ""name"": """",
                     ""id"": ""842bcd31-4b40-4b54-b7d2-a74fd621b6a2"",
-                    ""path"": ""<HID::mayflash limited MAYFLASH GameCube Controller Adapter>/button5"",
+                    ""path"": ""<XInputController>/leftTrigger"",
                     ""interactions"": """",
                     ""processors"": """",
                     ""groups"": """",
@@ -354,7 +354,7 @@ public partial class @Controlls : IInputActionCollection2, IDisposable
                 {
                     ""name"": """",
                     ""id"": ""e76aedff-9222-4cef-8494-9f833008d244"",
-                    ""path"": ""<HID::mayflash limited MAYFLASH GameCube Controller Adapter>/button6"",
+                    ""path"": ""<XInputController>/rightTrigger"",
                     ""interactions"": """",
                     ""processors"": """",
                     ""groups"": """",
@@ -365,7 +365,7 @@ public partial class @Controlls : IInputActionCollection2, IDisposable
                 {
                     ""name"": """",
                     ""id"": ""b0a102cd-956d-4623-ad85-1dc180d96381"",
-                    ""path"": ""<HID::mayflash limited MAYFLASH GameCube Controller Adapter>/button8"",
+                    ""path"": ""<XInputController>/select"",
                     ""interactions"": """",
                     ""processors"": """",
                     ""groups"": """",
@@ -431,7 +431,7 @@ public partial class @Controlls : IInputActionCollection2, IDisposable
                 {
                     ""name"": """",
                     ""id"": ""9fcdb26d-f6b0-4dcd-8916-451e2e2fc273"",
-                    ""path"": ""<HID::mayflash limited MAYFLASH GameCube Controller Adapter>/button10"",
+                    ""path"": ""<XInputController>/start"",
                     ""interactions"": """",
                     ""processors"": """",
                     ""groups"": """",

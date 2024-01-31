@@ -63,44 +63,30 @@ public class Menucontroller : MonoBehaviour
                 closemenu();
             }
         }
-        if (controls.Player.Pause.WasPerformedThisFrame() || controls.Player.Controllerpause.WasPerformedThisFrame()) //Input.GetButtonDown("Pause")) //controls.Player.Controllerpause.WasPerformedThisFrame())
+        if(Globalcalls.webglbuild == false)
         {
-            if (Globalcalls.gameispaused == false && scoutobj.activeSelf == false)
-            {
-                Globalcalls.gameispaused = true;
-                Time.timeScale = 0f;
-                Time.fixedDeltaTime = 0f;
-                pausewindow.SetActive(true);
-
-                if (PlayerPrefs.GetFloat(gamevalue + "ismuted") == 0) audiomixer.SetFloat(gamevalue, -80);
-                //StartCoroutine("pauseaudio");
-            }
-            else if (pausewindow.activeSelf == true) StartCoroutine("unpausegame");
+            if (controls.Player.Pause.WasPerformedThisFrame() || controls.Player.Controllerpause.WasPerformedThisFrame()) handlepausebuttonpress();
         }
+        else if (controls.Player.Pause.WasPerformedThisFrame() || Input.GetButtonDown("Pause")) handlepausebuttonpress();
+        //if (controls.Player.Pause.WasPerformedThisFrame() || controls.Player.Controllerpause.WasPerformedThisFrame()) //Input.GetButtonDown("Pause")) //controls.Player.Controllerpause.WasPerformedThisFrame())
         if (controls.Menu.Openmenu.WasPerformedThisFrame())                          // || Input.GetButtonDown("Start"))
         {
             if (pausewindow.activeSelf == true) StartCoroutine("unpausegame");
         }
-
-#if UNITY_EDITOR
-        if (controls.Menu.Screenshot.WasPerformedThisFrame())
-        {
-            
-            string date = DateTime.Now.ToString("yyyy/MM/dd HH:mm:ss");
-            date = date.Replace("/", ".");
-            date = date.Replace(" ", "_");
-            date = date.Replace(":", ".");
-            string path = screenshotpath + "Escape the depths " + date + ".png";
-            Debug.Log("hallo");
-
-            ScreenCapture.CaptureScreenshot(path);
-        }
-#endif
     }
-    IEnumerator pauseaudio()
+    private void handlepausebuttonpress()
     {
-        yield return null;
-        if (Globalcalls.gameispaused == true) audioSource.Pause();
+        if (Globalcalls.gameispaused == false && scoutobj.activeSelf == false)
+        {
+            Globalcalls.gameispaused = true;
+            Time.timeScale = 0f;
+            Time.fixedDeltaTime = 0f;
+            pausewindow.SetActive(true);
+
+            if (PlayerPrefs.GetFloat(gamevalue + "ismuted") == 0) audiomixer.SetFloat(gamevalue, -80);
+            //StartCoroutine("pauseaudio");
+        }
+        else if (pausewindow.activeSelf == true) StartCoroutine("unpausegame");
     }
     IEnumerator unpausegame()
     {
@@ -139,3 +125,19 @@ public class Menucontroller : MonoBehaviour
         
     }
 }
+
+
+
+//#if UNITY_EDITOR
+//        if (controls.Menu.Screenshot.WasPerformedThisFrame())
+//        {
+
+//            string date = DateTime.Now.ToString("yyyy/MM/dd HH:mm:ss");
+//            date = date.Replace("/", ".");
+//            date = date.Replace(" ", "_");
+//            date = date.Replace(":", ".");
+//            string path = screenshotpath + "Escape the depths " + date + ".png";
+
+//            ScreenCapture.CaptureScreenshot(path);
+//        }
+//#endif

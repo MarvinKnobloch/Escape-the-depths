@@ -22,5 +22,6 @@ public static class Globalcalls
 
     public static bool dontreadplayerinputs;
 
+    public static bool webglbuild;
     public static bool couldnotloaddata;
 }

@@ -21,26 +21,51 @@ public class Scoutcontroller : MonoBehaviour
     }
     void Update()
     {
-        if (controls.Player.Scoutmode.WasPerformedThisFrame() || controls.Player.Controllerscoutmode.WasPerformedThisFrame()) //Input.GetButtonDown("Scout")) //controls.Player.Controllerscoutmode.WasPerformedThisFrame())
+        if (Globalcalls.webglbuild == false)
         {
-            if(menu.activeSelf == false)
-            {
-                if (Globalcalls.gameispaused == false && scoutobj.activeSelf == false)
-                {
-                    Globalcalls.dontreadplayerinputs = true;
-                    scoutobj.SetActive(true);
-                    scouttarget.transform.position = new Vector3(maincam.transform.position.x, maincam.transform.position.y, 0);
-                    cinemachineVirtual.Follow = scouttarget.transform;
-                    cinemachineVirtual.GetCinemachineComponent<CinemachineFramingTransposer>().m_SoftZoneWidth = 0;
-                    cinemachineVirtual.GetCinemachineComponent<CinemachineFramingTransposer>().m_SoftZoneHeight = 0;
-                    return;
-                }
-                else if (scoutobj.activeSelf == true) StartCoroutine("closescoutmode");
-            }
+            if (controls.Player.Scoutmode.WasPerformedThisFrame() || controls.Player.Controllerscoutmode.WasPerformedThisFrame()) handlebuttonpress();
+        }
+        else
+        {
+            if (controls.Player.Scoutmode.WasPerformedThisFrame() || Input.GetButtonDown("Scout")) handlebuttonpress();
         }
         if (controls.Menu.Openmenu.WasPerformedThisFrame())
         {
             if (menu.activeSelf == false && scoutobj.activeSelf == true) StartCoroutine("closescoutmode");
+        }
+        ////if (controls.Player.Scoutmode.WasPerformedThisFrame() || controls.Player.Controllerscoutmode.WasPerformedThisFrame()) //Input.GetButtonDown("Scout")) //controls.Player.Controllerscoutmode.WasPerformedThisFrame())
+        ////{
+        ////    if(menu.activeSelf == false)
+        ////    {
+        ////        if (Globalcalls.gameispaused == false && scoutobj.activeSelf == false)
+        ////        {
+        ////            Globalcalls.dontreadplayerinputs = true;
+        ////            scoutobj.SetActive(true);
+        ////            scouttarget.transform.position = new Vector3(maincam.transform.position.x, maincam.transform.position.y, 0);
+        ////            cinemachineVirtual.Follow = scouttarget.transform;
+        ////            cinemachineVirtual.GetCinemachineComponent<CinemachineFramingTransposer>().m_SoftZoneWidth = 0;
+        ////            cinemachineVirtual.GetCinemachineComponent<CinemachineFramingTransposer>().m_SoftZoneHeight = 0;
+        ////            return;
+        ////        }
+        ////        else if (scoutobj.activeSelf == true) StartCoroutine("closescoutmode");
+        ////    }
+        //}
+    }
+    private void handlebuttonpress()
+    {
+        if (menu.activeSelf == false)
+        {
+            if (Globalcalls.gameispaused == false && scoutobj.activeSelf == false)
+            {
+                Globalcalls.dontreadplayerinputs = true;
+                scoutobj.SetActive(true);
+                scouttarget.transform.position = new Vector3(maincam.transform.position.x, maincam.transform.position.y, 0);
+                cinemachineVirtual.Follow = scouttarget.transform;
+                cinemachineVirtual.GetCinemachineComponent<CinemachineFramingTransposer>().m_SoftZoneWidth = 0;
+                cinemachineVirtual.GetCinemachineComponent<CinemachineFramingTransposer>().m_SoftZoneHeight = 0;
+                return;
+            }
+            else if (scoutobj.activeSelf == true) StartCoroutine("closescoutmode");
         }
     }
     IEnumerator closescoutmode()

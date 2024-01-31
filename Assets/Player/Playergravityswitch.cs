@@ -10,7 +10,8 @@ public class Playergravityswitch
 
     public void playerswitchgravity()
     {
-        if (psm.controls.Player.Gravityswitch.WasPerformedThisFrame() || psm.controls.Player.Controllergravityswitch.WasPerformedThisFrame()) //Input.GetButtonDown("Gravity")) //psm.controls.Player.Controllergravityswitch.WasPerformedThisFrame())
+        if (psm.checkcontroller(psm.controls.Player.Gravityswitch.WasPerformedThisFrame(), Input.GetButtonDown("Gravity"), psm.controls.Player.Controllergravityswitch.WasPerformedThisFrame()) == true)
+        // if (psm.controls.Player.Gravityswitch.WasPerformedThisFrame() || psm.controls.Player.Controllergravityswitch.WasPerformedThisFrame()) //Input.GetButtonDown("Gravity")) //psm.controls.Player.Controllergravityswitch.WasPerformedThisFrame())
         {
             if (Globalcalls.dontreadplayerinputs == false && Globalcalls.currentgravitystacks > 0)
             {
