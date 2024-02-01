@@ -24,4 +24,6 @@ public static class Globalcalls
 
     public static bool webglbuild;
     public static bool couldnotloaddata;
+
+    public static bool nodmg = false;
 }

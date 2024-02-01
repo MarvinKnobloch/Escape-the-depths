@@ -414,6 +414,15 @@ public partial class @Controlls : IInputActionCollection2, IDisposable
                     ""processors"": """",
                     ""interactions"": """",
                     ""initialStateCheck"": false
+                },
+                {
+                    ""name"": ""Nodamage"",
+                    ""type"": ""Button"",
+                    ""id"": ""0bda049b-9fcb-4cdd-803e-2186c6d8716f"",
+                    ""expectedControlType"": ""Button"",
+                    ""processors"": """",
+                    ""interactions"": """",
+                    ""initialStateCheck"": false
                 }
             ],
             ""bindings"": [
@@ -513,6 +522,17 @@ public partial class @Controlls : IInputActionCollection2, IDisposable
                     ""processors"": """",
                     ""groups"": """",
                     ""action"": ""Fps counter"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""ad3c526c-1594-42d6-9e9d-d91963ae2edf"",
+                    ""path"": ""<Keyboard>/f10"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""Nodamage"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": false
                 }
@@ -1143,6 +1163,7 @@ public partial class @Controlls : IInputActionCollection2, IDisposable
         m_Menu_Screenshot = m_Menu.FindAction("Screenshot", throwIfNotFound: true);
         m_Menu_Controllermove = m_Menu.FindAction("Controllermove", throwIfNotFound: true);
         m_Menu_Fpscounter = m_Menu.FindAction("Fps counter", throwIfNotFound: true);
+        m_Menu_Nodamage = m_Menu.FindAction("Nodamage", throwIfNotFound: true);
         // UI
         m_UI = asset.FindActionMap("UI", throwIfNotFound: true);
         m_UI_Navigate = m_UI.FindAction("Navigate", throwIfNotFound: true);
@@ -1363,6 +1384,7 @@ public partial class @Controlls : IInputActionCollection2, IDisposable
     private readonly InputAction m_Menu_Screenshot;
     private readonly InputAction m_Menu_Controllermove;
     private readonly InputAction m_Menu_Fpscounter;
+    private readonly InputAction m_Menu_Nodamage;
     public struct MenuActions
     {
         private @Controlls m_Wrapper;
@@ -1371,6 +1393,7 @@ public partial class @Controlls : IInputActionCollection2, IDisposable
         public InputAction @Screenshot => m_Wrapper.m_Menu_Screenshot;
         public InputAction @Controllermove => m_Wrapper.m_Menu_Controllermove;
         public InputAction @Fpscounter => m_Wrapper.m_Menu_Fpscounter;
+        public InputAction @Nodamage => m_Wrapper.m_Menu_Nodamage;
         public InputActionMap Get() { return m_Wrapper.m_Menu; }
         public void Enable() { Get().Enable(); }
         public void Disable() { Get().Disable(); }
@@ -1392,6 +1415,9 @@ public partial class @Controlls : IInputActionCollection2, IDisposable
                 @Fpscounter.started -= m_Wrapper.m_MenuActionsCallbackInterface.OnFpscounter;
                 @Fpscounter.performed -= m_Wrapper.m_MenuActionsCallbackInterface.OnFpscounter;
                 @Fpscounter.canceled -= m_Wrapper.m_MenuActionsCallbackInterface.OnFpscounter;
+                @Nodamage.started -= m_Wrapper.m_MenuActionsCallbackInterface.OnNodamage;
+                @Nodamage.performed -= m_Wrapper.m_MenuActionsCallbackInterface.OnNodamage;
+                @Nodamage.canceled -= m_Wrapper.m_MenuActionsCallbackInterface.OnNodamage;
             }
             m_Wrapper.m_MenuActionsCallbackInterface = instance;
             if (instance != null)
@@ -1408,6 +1434,9 @@ public partial class @Controlls : IInputActionCollection2, IDisposable
                 @Fpscounter.started += instance.OnFpscounter;
                 @Fpscounter.performed += instance.OnFpscounter;
                 @Fpscounter.canceled += instance.OnFpscounter;
+                @Nodamage.started += instance.OnNodamage;
+                @Nodamage.performed += instance.OnNodamage;
+                @Nodamage.canceled += instance.OnNodamage;
             }
         }
     }
@@ -1586,6 +1615,7 @@ public partial class @Controlls : IInputActionCollection2, IDisposable
         void OnScreenshot(InputAction.CallbackContext context);
         void OnControllermove(InputAction.CallbackContext context);
         void OnFpscounter(InputAction.CallbackContext context);
+        void OnNodamage(InputAction.CallbackContext context);
     }
     public interface IUIActions
     {

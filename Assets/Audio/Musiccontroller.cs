@@ -122,7 +122,7 @@ public class Musiccontroller : MonoBehaviour
     }
     public IEnumerator playnextsong()
     {
-        yield return new WaitForSecondsRealtime(audiosource.clip.length - 2f);//(audiosource.clip.length - 3f);
+        yield return new WaitForSecondsRealtime(audiosource.clip.length - 3.5f);//(audiosource.clip.length - 3f);
         if (currentsongnumber >= songlist.Count -1)
         {
             currentsongnumber = 0;
@@ -133,7 +133,7 @@ public class Musiccontroller : MonoBehaviour
         {
             if (clips[i].song == songlist[currentsongnumber])
             {
-                startfadeout(songlist[currentsongnumber], 0, 3f, 3, clips[i].volume);
+                startfadeout(songlist[currentsongnumber], 0, 4f, 3, clips[i].volume);
                 break;
             }
         }

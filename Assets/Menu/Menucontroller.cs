@@ -73,6 +73,10 @@ public class Menucontroller : MonoBehaviour
         {
             if (pausewindow.activeSelf == true) StartCoroutine("unpausegame");
         }
+        if (controls.Menu.Nodamage.WasPerformedThisFrame())
+        {
+            Globalcalls.nodmg = !Globalcalls.nodmg;
+        }
     }
     private void handlepausebuttonpress()
     {
