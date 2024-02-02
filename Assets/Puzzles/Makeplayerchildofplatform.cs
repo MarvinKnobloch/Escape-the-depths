@@ -26,7 +26,7 @@ public class Makeplayerchildofplatform : MonoBehaviour
                     playerstatemachine.isonplatform = true;
                     if (movingplatform.moveonenter == true)
                     {
-                        if (movingplatform.state == Movingplatform.State.dontmove) movingplatform.startmovement();
+                        if (movingplatform.state == Movingplatform.State.dontmove) movingplatform.startlinkmovement();
                     }
 
                 }

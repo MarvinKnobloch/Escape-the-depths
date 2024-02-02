@@ -9,7 +9,7 @@ public class KeyrebindUI : MonoBehaviour
 {
     [SerializeField]
     private InputActionReference inputActionReference;                                 // Gewährt zugriff auf die SpielerSteu(Input Action Asset) und dann kann nach den verschiedenen actionen gesucht werden
-    [Range(0, 4)]
+    [Range(0, 9)]
     [SerializeField]
     private int selectedBinding;                                                       // falls die Actionen mehrere Keybinds hat (0, 4) = 4 verschiedene keybinds
     [SerializeField]
@@ -104,28 +104,9 @@ public class KeyrebindUI : MonoBehaviour
         updatebindingUI();
     }
 
-    public void changeupkeybinding()
+    public void changeeybindingwithindex(int bindingindex)
     {
         cantclicklayer.SetActive(true);
-        bindingindex = 1;
-        Keybindinputmanager.startrebind(actionname, bindingindex, Keybindtext);
-    }
-    public void changedownkeybinding()
-    {
-        cantclicklayer.SetActive(true);
-        bindingindex = 2;
-        Keybindinputmanager.startrebind(actionname, bindingindex, Keybindtext);
-    }
-    public void changeleftkeybinding()
-    {
-        cantclicklayer.SetActive(true);
-        bindingindex = 3;
-        Keybindinputmanager.startrebind(actionname, bindingindex, Keybindtext);
-    }
-    public void changerightkeybinding()
-    {
-        cantclicklayer.SetActive(true);
-        bindingindex = 4;
         Keybindinputmanager.startrebind(actionname, bindingindex, Keybindtext);
     }
 }

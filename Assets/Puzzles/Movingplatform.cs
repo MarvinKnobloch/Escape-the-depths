@@ -22,6 +22,7 @@ public class Movingplatform : MonoBehaviour
 
     public bool moveonenter;
     public bool moveonenterdontstop;
+    [SerializeField] private GameObject[] linkotherplatforms;
     [SerializeField] private bool fastreturn;
     [SerializeField] private float fasttraveltime;
 
@@ -117,7 +118,19 @@ public class Movingplatform : MonoBehaviour
             }
         }
     }
-    public void startmovement()
+    public void startlinkmovement()
+    {
+        if (linkotherplatforms.Length != 0)
+        {
+            for (int i = 0; i < linkotherplatforms.Length; i++)
+            {
+                linkotherplatforms[i].GetComponent<Movingplatform>().startmovement();
+            }
+            startmovement();
+        }
+        else startmovement();
+    }
+    private void startmovement()
     {
         state = State.movetoend;
         movetime = 0;

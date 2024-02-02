@@ -9,7 +9,7 @@ public class Playerresetzone : MonoBehaviour
     [SerializeField] private GameObject[] moveresetobjsandzones;
     private void OnTriggerEnter2D(Collider2D collision)
     {
-        if (collision.CompareTag("Player") && Globalcalls.nodmg == true)
+        if (collision.CompareTag("Player"))
         {
             if (Globalcalls.playeresetpoint != Vector3.zero)
             {

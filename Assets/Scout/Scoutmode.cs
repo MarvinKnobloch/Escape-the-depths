@@ -25,7 +25,7 @@ public class Scoutmode : MonoBehaviour
     private void OnEnable()
     {
         controls.Enable();
-        movehotkey = controls.Player.Move;
+        movehotkey = controls.Menu.Menumove;
         controllermovehotkey = controls.Menu.Controllermove;
     }
 

@@ -18,6 +18,7 @@ public class Fpsdisplay : MonoBehaviour
     {
         if (controls.Menu.Fpscounter.WasPerformedThisFrame())
         {
+            Debug.Log("hallo");
             if (fpscounter.activeSelf == false) fpscounter.SetActive(true);
             else fpscounter.SetActive(false);
         }
