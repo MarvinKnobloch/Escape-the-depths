@@ -121,23 +121,10 @@ public class Menucontroller : MonoBehaviour
         Time.timeScale = normaltimescale;
         Time.fixedDeltaTime = normalfixeddeltatime;
         if(menu.activeSelf == true) menusoundcontroller.playmenusound1();
-        menu.SetActive(false);
-        
+        menu.SetActive(false);       
     }
 }
 
 
 
-//#if UNITY_EDITOR
-//        if (controls.Menu.Screenshot.WasPerformedThisFrame())
-//        {
 
-//            string date = DateTime.Now.ToString("yyyy/MM/dd HH:mm:ss");
-//            date = date.Replace("/", ".");
-//            date = date.Replace(" ", "_");
-//            date = date.Replace(":", ".");
-//            string path = screenshotpath + "Escape the depths " + date + ".png";
-
-//            ScreenCapture.CaptureScreenshot(path);
-//        }
-//#endif

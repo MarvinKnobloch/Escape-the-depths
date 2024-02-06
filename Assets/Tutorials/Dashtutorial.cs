@@ -31,6 +31,6 @@ public class Dashtutorial : MonoBehaviour
         dashhotkey = controls.Player.Dash.GetBindingDisplayString(0);
         tutorialtext.text = "Press <color=green>" + dashhotkey + "</color> to dash.\n" +
                                 "This can be useful to cross gaps.\n\n You can dash only once while in the air.\n" +
-                                "\nOn the ground press dash mulitple times for faster movement.";
+                                "\nOn the ground press dash multiple times for faster movement.";
     }
 }
